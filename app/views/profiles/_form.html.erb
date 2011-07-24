@@ -1,0 +1,14 @@
+<%= form.inputs do %>
+	<%= form.input :title, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :name, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :male, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :school, :input_html => { :class => "text-input medium-input" } %>
+        <%= form.input :company, :input_html => { :class => "text-input medium-input" } %>
+        <%= form.input :tel, :input_html => { :class => "text-input medium-input" } %>
+        <%= form.input :avatar, :as => :file, :hint => "请务必上传艺术家的头像！或者代表图!" %>
+        <%= form.input :user_id, :as => :hidden%>
+<% end %>
+
+<%= form.buttons do %>
+	<%= form.commit_button :button_html => { :class => "button" } %>
+<% end %>

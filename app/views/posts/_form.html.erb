@@ -1,0 +1,18 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<%= form.inputs do %>
+  <%= form.input :title, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :description, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :longtime, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :tel, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :low_price, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :high_price, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :state, :input_html => { :class => "text-input medium-input" } %>
+<% end %>
+
+<%= form.buttons do %>
+  <%= form.commit_button :button_html => { :class => "button" } %>
+<% end %>
+

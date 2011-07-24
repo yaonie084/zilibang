@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  name: MyString
+  male: false
+  school: MyString
+  avatar_file_name: MyString
+  avatar_content_type: MyString
+  avartar_file_size: 1
+
+two:
+  title: MyString
+  name: MyString
+  male: false
+  school: MyString
+  avatar_file_name: MyString
+  avatar_content_type: MyString
+  avartar_file_size: 1
