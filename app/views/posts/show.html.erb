@@ -1,57 +1,104 @@
-<table>
-	<thead>
-		<tr>
-			<th>title</th>
-			<th>description</th>
-			<th>时间</th>
-			<th>电话</th>
-                        <th>金额</th>
-                        <th>状态</th>
-                        <th>发布时间</th>
-		</tr>
-	</thead>
+<table border = "1">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>时间</th>
+      <th>电话</th>
+      <th>金额</th>
+      <th>状态</th>
+      <th>发布时间</th>
+    </tr>
+  </thead>
 
-	<tbody>
-		<tr>
-			<td><%= @post.title %></td>
-			<td><%= @post.description %></td>
-			<td><%= @post.longtime %></td>
-                        <td><%= @post.tel %></td>
-                        <td><%= "#{@post.low_price} - #{@post.high_price}" %></td>
-                        <td><%= @post.state %></td>
-			<td><%= @post.created_at %></td>
+  <tbody>
+    <tr>
+      <td><%= @post.title %></td>
+      <td><%= @post.description %></td>
+      <td><%= @post.longtime %>天</td>
+      <td><%= @post.tel %></td>
+      <td><%= "#{@post.low_price} - #{@post.high_price}" %></td>
+      <td>
+        <% if @post.over == true %>
+          结束了
+        <% else %>
+          选标中
+        <% end %>
+        |
 
-		</tr>
-	</tbody>
+      </td>
+      <td><%= @post.created_at %></td>
+
+    </tr>
+  </tbody>
 </table>
+<div>
+  <% if @post.user == current_user %>
+          <% if @post.over == true %>
+          已经被您结束了哦
+        <% else %>
+          <%= link_to "结束任务", over_post_path(@post) %>
+        <% end %>
+            
+    <% if @post.paid == false %>
+      <%= link_to "付押金[?]", pay_post_path(@post) %>
+    <% else %>
+      已经付款了
+    <% end %>
+  <% end %>
+</div>
 <h3 id="comments"><%= @comments.count %> Responses to &#8220;<%= @post.title %>&#8221;</h3>
 
-	<ol class="commentlist">
-		<% @comments.each do |comment| %>
-			<li class="alt" id="comment-<%= comment.id %>">
-				<div class="commentmetadata">
-					<strong><a href="#" rel='external nofollow' class='url'> <%= comment.user.profile.name %> </a></strong>, on <%= comment.created_at %> Said&#58;
-				</div>
-				<p> <%= comment.content %> </p>
-			</li>
-		<% end %>
-	</ol>
+<ol >
+  <% @comments.each do |comment| %>
+    <li style="border-bottom:1px solid #ccc">
+      <div class="commentmetadata">
+        <strong><a href="#" rel='external nofollow' class='url'> <%= comment.user.profile.name %> </a></strong>, on <%= comment.created_at %> Said&#58;
+      </div>
+      <p> <%= comment.content %> </p>
 
-	<h3 id="respond">Leave a Reply</h3>
+      <p>
+        <% if comment.buyer_sure == true %>
+          企业已确认
+        <% else %>
+          企业考虑中
+        <% end %>
+        |
+        <% if comment.employer_sure == true %>
+          受雇佣者已确认
+        <% else %>
+          还没上线确认信息哦～
+        <% end %>
+      </p>
+
+      <p>
+        <%= link_to "企业确认", buyer_sure_path(comment) %> | <%= link_to "受雇者确认", employer_sure_path(comment) %>
+      </p>
+    </li>
+  <% end %>
+</ol>
+
+<h3 id="respond">竞标区</h3>
 
 
-		<%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
+<%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
 
-                <p>
-			<%= f.text_field :price %>
-		</p>
-                <p>
-			<%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
-		</p>
+  <p>
+    金额：
+  </p>
+  <p>
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    内容：
+  </p>
+  <p>
+    <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
+  </p>
 
-		<p>
-			<input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-			<input type="hidden" name="comment_post_ID" value="92" />
-		</p>
+  <p>
+    <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+    <input type="hidden" name="comment_post_ID" value="92" />
+  </p>
 
-		<% end %>
+<% end %>

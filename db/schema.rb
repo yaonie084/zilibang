@@ -10,13 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724074154) do
+ActiveRecord::Schema.define(:version => 20110726091534) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
     t.integer  "user_id"
     t.integer  "post_id"
     t.integer  "price"
+    t.string   "code"
+    t.boolean  "buyer_sure"
+    t.boolean  "employer_sure"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.integer  "from"
+    t.integer  "to"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20110724074154) do
     t.integer  "low_price"
     t.integer  "high_price"
     t.integer  "user_id"
+    t.boolean  "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110724074154) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
+    t.integer  "gold",               :default => 0
     t.boolean  "superadmin",         :default => false
     t.integer  "login_count",        :default => 0,     :null => false
     t.integer  "failed_login_count", :default => 0,     :null => false

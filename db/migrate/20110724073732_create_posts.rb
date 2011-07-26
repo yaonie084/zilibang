@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :low_price
       t.integer :high_price
       t.references :user
+      t.boolean :paid
 
       t.timestamps
     end

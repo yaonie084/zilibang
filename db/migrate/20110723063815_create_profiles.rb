@@ -9,7 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :tel
       t.string :avatar_file_name
       t.string :avatar_content_type
-      t.integer :avartar_file_size
+      t.integer :avatar_file_size
       t.references :user
 
     end

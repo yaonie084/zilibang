@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post])
+    @post.user = current_user
     @post.save
     flash[:notice] = "create_successful"
     #respond_with(@user, :location => root_path())
@@ -49,6 +50,15 @@ class PostsController < ApplicationController
     @comment.save
     flash[:notice] = "add comment success"
     redirect_to post_path(@comment.post_id)
+  end
+
+  def over
+    @post = Post.find(params[:id])
+    if current_user == post.user
+      @post.over = true
+      @post.save
+      render pay_path(@post)
+    end
   end
 
 end

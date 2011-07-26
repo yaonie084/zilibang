@@ -7,7 +7,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <% if current_user.profile != nil %>
+  <% if current_user!= nil and current_user.profile!=nil %>
   <%= link_to current_user.profile.name, profile_path(current_user.profile) %>
   <% end %>
 <%= link_to "登入", login_url %>
