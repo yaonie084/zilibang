@@ -6,11 +6,12 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :longtime
       t.string :tel
       t.string :state
-      t.boolean :over
+      t.boolean :over, :default => false
+      t.boolean :finish, :deault => false
       t.integer :low_price
       t.integer :high_price
       t.references :user
-      t.boolean :paid
+      t.boolean :paid, :default => false
 
       t.timestamps
     end

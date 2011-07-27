@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = @post.comments.new
+    #flash[:notice] = "xx"
   end
 
   def create
@@ -54,10 +55,20 @@ class PostsController < ApplicationController
 
   def over
     @post = Post.find(params[:id])
-    if current_user == post.user
+    if current_user == @post.user
       @post.over = true
       @post.save
-      render pay_path(@post)
+      redirect_to post_path(@post)
+    end
+  end
+
+  def finish
+    @post = Post.find(params[:id])
+    if current_user == @post.user
+      @post.finish = true
+      @post.save
+      flash[:notice] = "bussiness success"
+      redirect_to post_path(@post)
     end
   end
 

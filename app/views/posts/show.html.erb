@@ -1,3 +1,7 @@
+<% if flash[:notice] -%>
+  <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
+    <%= flash[:notice] %></div>
+<% end -%>
 <table border = "1">
   <thead>
     <tr>
@@ -24,7 +28,6 @@
         <% else %>
           选标中
         <% end %>
-        |
 
       </td>
       <td><%= @post.created_at %></td>
@@ -34,17 +37,22 @@
 </table>
 <div>
   <% if @post.user == current_user %>
-          <% if @post.over == true %>
-          已经被您结束了哦
+    <% if @post.over == true %>
+      已经被您结束了哦
+      <% if @post.paid == false %>
+        <%= link_to "付押金[?]", pay_post_path(@post) %>
+      <% else %>
+        已经付款了
+        <% if @post.finish == false %>
+          <%= link_to "工人已经为我完成了工作！", finish_post_path(@post) %>
         <% else %>
-          <%= link_to "结束任务", over_post_path(@post) %>
+          这个任务已经结束了
         <% end %>
-            
-    <% if @post.paid == false %>
-      <%= link_to "付押金[?]", pay_post_path(@post) %>
+      <% end %>
     <% else %>
-      已经付款了
+      <%= link_to "结束任务", over_post_path(@post) %>
     <% end %>
+
   <% end %>
 </div>
 <h3 id="comments"><%= @comments.count %> Responses to &#8220;<%= @post.title %>&#8221;</h3>
@@ -55,6 +63,9 @@
       <div class="commentmetadata">
         <strong><a href="#" rel='external nofollow' class='url'> <%= comment.user.profile.name %> </a></strong>, on <%= comment.created_at %> Said&#58;
       </div>
+      <% if @post.paid == true %>
+        <p>电话 <%= comment.user.profile.tel %> </p>
+      <% end %>
       <p> <%= comment.content %> </p>
 
       <p>
@@ -74,31 +85,41 @@
       <p>
         <%= link_to "企业确认", buyer_sure_path(comment) %> | <%= link_to "受雇者确认", employer_sure_path(comment) %>
       </p>
+      <% if @post.paid == true %>
+        <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" class="edit_comment" id="edit_comment_1" method="post">
+          <input name="code" size="30" type="text" value=""></input>
+          <input name="commit" type="submit" value="提交验证码" />
+          <input type="hidden" name="id" value="<%= comment.id %>"></input>
+        </form>
+      <% end %>
     </li>
   <% end %>
 </ol>
+<% if @post.over == false %>
+  <h3 id="respond">竞标区</h3>
 
-<h3 id="respond">竞标区</h3>
 
+  <%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
 
-<%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
+    <p>
+      金额：
+    </p>
+    <p>
+      <%= f.text_field :price %>
+    </p>
+    <p>
+      内容：
+    </p>
+    <p>
+      <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
+    </p>
 
-  <p>
-    金额：
-  </p>
-  <p>
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    内容：
-  </p>
-  <p>
-    <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
-  </p>
+    <p>
+      <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+      <input type="hidden" name="comment_post_ID" value="92" />
+    </p>
 
-  <p>
-    <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-    <input type="hidden" name="comment_post_ID" value="92" />
-  </p>
-
+  <% end %>
+<% else %>
+    您错过了投标的时间，别人都开始做啦！
 <% end %>

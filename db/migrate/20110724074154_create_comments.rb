@@ -6,8 +6,9 @@ class CreateComments < ActiveRecord::Migration
       t.references :post
       t.integer :price
       t.string  :code
-      t.boolean :buyer_sure
-      t.boolean :employer_sure
+      t.boolean :verified, :default => false
+      t.boolean :buyer_sure, :default => false
+      t.boolean :employer_sure, :default => false
 
       t.timestamps
     end

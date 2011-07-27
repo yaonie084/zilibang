@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(:version => 20110726091534) do
     t.integer  "post_id"
     t.integer  "price"
     t.string   "code"
-    t.boolean  "buyer_sure"
-    t.boolean  "employer_sure"
+    t.boolean  "verified",      :default => false
+    t.boolean  "buyer_sure",    :default => false
+    t.boolean  "employer_sure", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,11 +39,12 @@ ActiveRecord::Schema.define(:version => 20110726091534) do
     t.integer  "longtime"
     t.string   "tel"
     t.string   "state"
-    t.boolean  "over"
+    t.boolean  "over",        :default => false
+    t.boolean  "finish"
     t.integer  "low_price"
     t.integer  "high_price"
     t.integer  "user_id"
-    t.boolean  "paid"
+    t.boolean  "paid",        :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20110726091534) do
     t.string  "tel"
     t.string  "avatar_file_name"
     t.string  "avatar_content_type"
-    t.integer "avartar_file_size"
+    t.integer "avatar_file_size"
     t.integer "user_id"
   end
 
