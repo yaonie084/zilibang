@@ -23,12 +23,21 @@
       <td><%= @post.tel %></td>
       <td><%= "#{@post.low_price} - #{@post.high_price}" %></td>
       <td>
-        <% if @post.over == true %>
-          结束了
+        <% if @post.finish == true %>
+          任务完成
         <% else %>
-          选标中
+          <% if @post. paid == true %>
+            企业已付款，等待工作结束
+          <% else %>
+            <% if @post.over == false %>
+              竞标中
+            <% else %>
+              <% if @post.over == true %>
+                竞标结束,等待企业付款
+              <% end %>
+            <% end %>
+          <% end %>
         <% end %>
-
       </td>
       <td><%= @post.created_at %></td>
 

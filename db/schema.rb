@@ -92,7 +92,6 @@ ActiveRecord::Schema.define(:version => 20110728075600) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                                 :null => false
     t.string   "email",                                 :null => false
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
@@ -112,6 +111,5 @@ ActiveRecord::Schema.define(:version => 20110728075600) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["login"], :name => "index_users_on_login"
 
 end
