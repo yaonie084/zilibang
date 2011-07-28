@@ -50,8 +50,26 @@ class CommentsController < ApplicationController
         redirect_to post_path(comment.post)
       end
     else
-    flash[:notice] = "who's ur daddy?"
-    redirect_to post_path(comment.post)
+      flash[:notice] = "who's ur daddy?"
+      redirect_to post_path(comment.post)
     end
+  end
+
+  def report_buyer
+    comment = Comment.find(params[:id])
+    comment.buyer_content = params[:content]
+    comment.buyer_level = params[:level]
+    comment.save
+    flash[:notice] = "report success"
+    redirect_to post_path(comment.post)
+  end
+
+  def report_employer
+    comment = Comment.find(params[:id])
+    comment.employer_content = params[:content]
+    comment.employer_level = params[:level]
+    comment.save
+    flash[:notice] = "report success"
+    redirect_to post_path(comment.post)
   end
 end

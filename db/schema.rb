@@ -18,9 +18,13 @@ ActiveRecord::Schema.define(:version => 20110728075600) do
     t.integer  "post_id"
     t.integer  "price"
     t.string   "code"
-    t.boolean  "verified",      :default => false
-    t.boolean  "buyer_sure",    :default => false
-    t.boolean  "employer_sure", :default => false
+    t.boolean  "verified",         :default => false
+    t.boolean  "buyer_sure",       :default => false
+    t.boolean  "employer_sure",    :default => false
+    t.text     "buyer_content"
+    t.integer  "buyer_level",      :default => 0
+    t.text     "employer_content"
+    t.integer  "employer_level",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

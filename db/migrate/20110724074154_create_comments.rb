@@ -9,7 +9,10 @@ class CreateComments < ActiveRecord::Migration
       t.boolean :verified, :default => false
       t.boolean :buyer_sure, :default => false
       t.boolean :employer_sure, :default => false
-
+      t.text :buyer_content
+      t.integer :buyer_level, :default => 0
+      t.text :employer_content
+      t.integer :employer_level, :default => 0
       t.timestamps
     end
   end

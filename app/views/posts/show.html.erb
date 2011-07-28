@@ -56,6 +56,7 @@
           <%= link_to "工人已经为我完成了工作！", finish_post_path(@post) %>
         <% else %>
           这个任务已经结束了
+
         <% end %>
       <% end %>
     <% else %>
@@ -98,6 +99,7 @@
       <% end %>
       <p>
         <% if @post.over == false %>
+
           <% if @post.user == current_user %>
             <% if comment.buyer_sure != true %>
               <%= link_to "企业确认", buyer_sure_path(comment) %>
@@ -105,13 +107,16 @@
               <%= link_to "取消确认", buyer_cancel_path(comment) %>
             <% end %>
           <% end %>
+
           <% if comment.user == current_user and comment.buyer_sure == true%>
+
             <% if comment.employer_sure != true %>
               <%= link_to "受雇者确认", employer_sure_path(comment) %>
             <% else %>
               <%= link_to "取消确认", employer_cancel_path(comment)  %>
             <% end %>
           <% end %>
+
         <% else %>
           <% if comment.buyer_sure == true and comment.employer_sure == true %>
             竞标成功！
@@ -120,15 +125,57 @@
           <% end %>
         <% end %>
       </p>
-      <% if @post.paid == true and comment.user == current_user%>
+
+      <% if @post.paid == true%>
         <% if comment.verified == false %>
-          <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" class="edit_comment" id="edit_comment_1" method="post">
+          <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" method="post">
             <input name="code" size="30" type="text" value=""></input>
             <input name="commit" type="submit" value="提交验证码" />
             <input type="hidden" name="id" value="<%= comment.id %>"></input>
           </form>
         <%  else %>
           <h1>验证成功</h1>
+          <% if @post.finish == true %>
+            <div>
+
+
+              <% if comment.user == current_user %>
+                <div>
+                  <% if comment.employer_level == 0 %>
+                    评价企业
+                    <form accept-charset="UTF-8" action= "<%= report_employer_url %>"  name="report_form" method="post">
+                      <input name="content" size="30" type="text" value=""></input>
+                      <input name="level" type="text" value=""></input>
+                      <input name="commit" type="submit" value="提交评价" />
+                      <input type="hidden" name="id" value="<%= comment.id %>"></input>
+                    </form>
+                  <% else %>
+                    企业的评价:
+                    <%= "#{comment.employer_content}-#{comment.employer_level}" %>
+                  <% end %>
+                </div>
+              <% end %>
+
+
+              <% if @post.user == current_user %>
+                <div>
+                  <% if comment.buyer_level == 0 %>
+                    评价工人
+                    <form accept-charset="UTF-8" action= "<%= report_buyer_url %>"  name="report_form" method="post">
+                      <input name="content" size="30" type="text" value=""></input>
+                      <input name="level" type="text" value=""></input>
+                      <input name="commit" type="submit" value="提交评价" />
+                      <input type="hidden" name="id" value="<%= comment.id %>"></input>
+                    </form>
+                  <% else %>
+                    工人的评价:
+                    <%= "#{comment.buyer_content}-#{comment.buyer_level}" %>
+                  <% end %>
+                </div>
+              <% end %>
+
+            </div>
+          <% end %>
         <% end %>
       <% end %>
     </li>

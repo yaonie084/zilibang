@@ -14,6 +14,8 @@ Zilibang::Application.routes.draw do
   get 'finish/:id' => "posts#finish", :as => :finish_post
   get 'pay_sure/:id' => "home#pay_sure", :as => :pay_sure_post
   get 'pay/:id' => "home#pay", :as => :pay_post
+  post 'report_employer' => "comments#report_employer", :as => :report_employer
+  post 'report_buyer' => "comments#report_buyer", :as => :report_buyer
   post 'verify' => "comments#verify_code", :as => :verify_code
   
   resources :users, :only => [:new, :create]
