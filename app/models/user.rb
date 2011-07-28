@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  acts_as_authentic
+  acts_as_authentic do |c|
+    c.login_field = :email
+  end
   acts_as_taggable_on :skills, :interests
   attr_accessor :old_password
   attr_protected :superadmin

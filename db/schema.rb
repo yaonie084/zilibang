@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728014229) do
+ActiveRecord::Schema.define(:version => 20110728075600) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20110728014229) do
     t.string   "tel"
     t.string   "state"
     t.boolean  "over",        :default => false
-    t.boolean  "finish"
+    t.boolean  "finish",      :default => false
     t.integer  "low_price"
     t.integer  "high_price"
     t.integer  "user_id"
