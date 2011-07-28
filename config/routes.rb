@@ -7,7 +7,9 @@ Zilibang::Application.routes.draw do
   match "login" => "user_sessions#new", :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
   get 'buyer_sure/:id' => "comments#buyer_sure", :as => :buyer_sure
+  get 'buyer_cancel/:id' => "comments#buyer_cancel",  :as => :buyer_cancel
   get 'employer_sure/:id' => "comments#employer_sure", :as => :employer_sure
+  get 'employer_cancel/:id' => "comments#employer_cancel",  :as => :employer_cancel
   get 'overpost/:id' => "posts#over", :as => :over_post
   get 'finish/:id' => "posts#finish", :as => :finish_post
   get 'pay_sure/:id' => "home#pay_sure", :as => :pay_sure_post

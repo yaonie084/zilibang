@@ -67,59 +67,93 @@
         <p>电话 <%= comment.user.profile.tel %> </p>
       <% end %>
       <p> <%= comment.content %> </p>
-
+      <% if comment.user == current_user or @post.user == current_user%>
+        <% @have_comment = true %>
+        <p>
+          <% if comment.buyer_sure == true %>
+            企业已确认
+          <% else %>
+            企业考虑中
+          <% end %>
+          |
+          <% if comment.buyer_sure == true %>
+            <% if comment.employer_sure == true %>
+              受雇佣者已确认
+            <% else %>
+              还没上线确认信息哦～
+            <% end %>
+          <% else %>
+            等待中标
+          <% end %>
+        </p>
+      <% end %>
       <p>
-        <% if comment.buyer_sure == true %>
-          企业已确认
+        <% if @post.over == false %>
+          <% if @post.user == current_user %>
+            <% if comment.buyer_sure != true %>
+              <%= link_to "企业确认", buyer_sure_path(comment) %>
+            <% else %>
+              <%= link_to "取消确认", buyer_cancel_path(comment) %>
+            <% end %>
+          <% end %>
+          <% if comment.user == current_user and comment.buyer_sure == true%>
+            <% if comment.employer_sure != true %>
+              <%= link_to "受雇者确认", employer_sure_path(comment) %>
+            <% else %>
+              <%= link_to "取消确认", employer_cancel_path(comment)  %>
+            <% end %>
+          <% end %>
         <% else %>
-          企业考虑中
-        <% end %>
-        |
-        <% if comment.employer_sure == true %>
-          受雇佣者已确认
-        <% else %>
-          还没上线确认信息哦～
+          <% if comment.buyer_sure == true and comment.employer_sure == true %>
+            竞标成功！
+          <% else %>
+            竞标失败！
+          <% end %>
         <% end %>
       </p>
-
-      <p>
-        <%= link_to "企业确认", buyer_sure_path(comment) %> | <%= link_to "受雇者确认", employer_sure_path(comment) %>
-      </p>
-      <% if @post.paid == true %>
-        <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" class="edit_comment" id="edit_comment_1" method="post">
-          <input name="code" size="30" type="text" value=""></input>
-          <input name="commit" type="submit" value="提交验证码" />
-          <input type="hidden" name="id" value="<%= comment.id %>"></input>
-        </form>
+      <% if @post.paid == true and comment.user == current_user%>
+        <% if comment.verified == false %>
+          <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" class="edit_comment" id="edit_comment_1" method="post">
+            <input name="code" size="30" type="text" value=""></input>
+            <input name="commit" type="submit" value="提交验证码" />
+            <input type="hidden" name="id" value="<%= comment.id %>"></input>
+          </form>
+        <%  else %>
+          <h1>验证成功</h1>
+        <% end %>
       <% end %>
     </li>
   <% end %>
 </ol>
-<% if @post.over == false %>
-  <h3 id="respond">竞标区</h3>
+<% if @post.user != current_user and @have_comment != true%>
+  <% if @post.over == false %>
+    <h3 id="respond">竞标区</h3>
 
 
-  <%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
+    <%= form_for @comment, :url => post_add_comment_path(@post), :method => :post, :html => { :id => "commentform" } do |f| %>
 
-    <p>
-      金额：
-    </p>
-    <p>
-      <%= f.text_field :price %>
-    </p>
-    <p>
-      内容：
-    </p>
-    <p>
-      <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
-    </p>
+      <p>
+        金额：
+      </p>
+      <p>
+        <%= f.text_field :price %>
+      </p>
+      <p>
+        内容：
+      </p>
+      <p>
+        <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
+      </p>
 
-    <p>
-      <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-      <input type="hidden" name="comment_post_ID" value="92" />
-    </p>
+      <p>
+        <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+        <input type="hidden" name="comment_post_ID" value="92" />
+      </p>
 
-  <% end %>
-<% else %>
+    <% end %>
+  <% else %>
     您错过了投标的时间，别人都开始做啦！
+  <% end %>
 <% end %>
+
+<%= link_to "返回", posts_path() %>

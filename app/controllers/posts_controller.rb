@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @have_comment = nil
     @comments = @post.comments
     @comment = @post.comments.new
     #flash[:notice] = "xx"

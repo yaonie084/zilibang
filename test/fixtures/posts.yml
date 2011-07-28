@@ -1,21 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  description: MyText
-  longtime: 1
-  tel: MyString
-  state: MyString
-  over: false
-  gold: 1
-  user: 
+  a: MyString
 
 two:
-  title: MyString
-  description: MyText
-  longtime: 1
-  tel: MyString
-  state: MyString
-  over: false
-  gold: 1
-  user: 
+  a: MyString
