@@ -13,6 +13,10 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 gem 'formtastic', '~> 1.2.3'
 gem "paperclip", "~> 2.3"
 gem 'acts-as-taggable-on', "~> 2.0.6"
+gem 'haml'
+gem 'guid'
+gem 'activemerchant', :require => "active_merchant"
+gem 'activemerchant_patch_for_china', '0.1.6'
 
 # Use unicorn as the web server
 # gem 'unicorn'

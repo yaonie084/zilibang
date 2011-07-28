@@ -10,6 +10,7 @@ Zilibang::Application.routes.draw do
   get 'employer_sure/:id' => "comments#employer_sure", :as => :employer_sure
   get 'overpost/:id' => "posts#over", :as => :over_post
   get 'finish/:id' => "posts#finish", :as => :finish_post
+  get 'pay_sure/:id' => "home#pay_sure", :as => :pay_sure_post
   get 'pay/:id' => "home#pay", :as => :pay_post
   post 'verify' => "comments#verify_code", :as => :verify_code
   

@@ -1,0 +1,19 @@
+<div>
+  <%= @post.title %>
+  <div>
+    price: <%= @price %>
+  </div>
+
+  <div>
+    <h2>准备支付给以下的工人</h2>
+    <ul>
+      <% @comments.each do |comment| %>
+        <li>
+          <span> <%= comment.user.profile.name %></span>
+          <span> <%= comment.content %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to "确认付款", pay_post_path(@post) %>
+</div>

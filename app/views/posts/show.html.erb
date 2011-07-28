@@ -40,7 +40,7 @@
     <% if @post.over == true %>
       已经被您结束了哦
       <% if @post.paid == false %>
-        <%= link_to "付押金[?]", pay_post_path(@post) %>
+        <%= link_to "付押金[?]", pay_sure_post_path(@post) %>
       <% else %>
         已经付款了
         <% if @post.finish == false %>
