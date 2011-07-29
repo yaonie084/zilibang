@@ -10,6 +10,8 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(params[:profile])
     @profile.save
     @profile.user.deliver_register_instructions!
+#    envelope.delay.query_status(delivery)
+
     flash[:notice] = "create_success"
     redirect_to profile_path(@profile)
   end

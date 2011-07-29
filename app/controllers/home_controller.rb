@@ -29,7 +29,7 @@ class HomeController < ApplicationController
   end
 
   def mailer
-    UserMailer.welcome_email(current_user).deliver
+    current_user.delay.deliver_register_instructions!
     redirect_to root_url
   end
 

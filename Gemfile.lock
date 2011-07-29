@@ -1,4 +1,20 @@
 GIT
+  remote: git://github.com/collectiveidea/delayed_job.git
+  revision: 4b0f030982721f6ba829f557f3a297e6bfd0b355
+  specs:
+    delayed_job (3.0.0.pre)
+      activesupport
+      daemons
+
+GIT
+  remote: git://github.com/collectiveidea/delayed_job_active_record.git
+  revision: 3d359527cb22e0ea70fab103ad5af0902a1bfa78
+  specs:
+    delayed_job_active_record (0.2.0)
+      activerecord (~> 3.0)
+      delayed_job (= 3.0.0.pre)
+
+GIT
   remote: git://github.com/odorcicd/authlogic.git
   revision: a087ad0cba3c165ba22fcf176c28b6f7517931e8
   branch: rails3
@@ -50,6 +66,7 @@ GEM
     builder (2.1.2)
     cancan (1.6.5)
     cocaine (0.1.0)
+    daemons (1.1.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     formtastic (1.2.4)
@@ -109,6 +126,8 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.0.6)
   authlogic!
   cancan (~> 1.6.4)
+  delayed_job!
+  delayed_job_active_record!
   formtastic (~> 1.2.3)
   guid
   haml
