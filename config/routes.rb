@@ -5,6 +5,7 @@ Zilibang::Application.routes.draw do
   root :to => "home#index"
   resource :user_session
   match "login" => "user_sessions#new", :as => :login
+  match "register_check_instructions/:id" => "users#register_check_instructions", :as => :register_check_instructions
   match 'logout' => "user_sessions#destroy", :as => :logout
   get 'buyer_sure/:id' => "comments#buyer_sure", :as => :buyer_sure
   get 'buyer_cancel/:id' => "comments#buyer_cancel",  :as => :buyer_cancel
@@ -17,6 +18,7 @@ Zilibang::Application.routes.draw do
   post 'report_employer' => "comments#report_employer", :as => :report_employer
   post 'report_buyer' => "comments#report_buyer", :as => :report_buyer
   post 'verify' => "comments#verify_code", :as => :verify_code
+  get 'mailer' => "home#mailer", :as => :mailer
 
   
   resources :users, :only => [:new, :create]

@@ -28,4 +28,9 @@ class HomeController < ApplicationController
     
   end
 
+  def mailer
+    UserMailer.welcome_email(current_user).deliver
+    redirect_to root_url
+  end
+
 end

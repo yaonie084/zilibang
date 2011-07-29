@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110728075600) do
   end
 
   create_table "messages", :force => true do |t|
-    t.integer  "from"
-    t.integer  "to"
+    t.integer  "from",       :null => false
+    t.integer  "to",         :null => false
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20110728075600) do
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
     t.integer  "gold",               :default => 0
+    t.string   "role"
     t.boolean  "superadmin",         :default => false
     t.integer  "login_count",        :default => 0,     :null => false
     t.integer  "failed_login_count", :default => 0,     :null => false

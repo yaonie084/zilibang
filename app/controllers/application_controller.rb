@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   respond_to :html, :xml, :json
   helper_method :current_user_session, :current_user
 
+  rescue_from CanCan::AccessDenied do |exception|
+    puts "\n\nERROR:your are not enough of power xx----------\n\n"
+    redirect_to root_url, :alert => exception.message
+  end
+
   private
   def current_user_session
     return @current_user_session if defined?(@current_user_session)

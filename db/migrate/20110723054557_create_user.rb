@@ -6,6 +6,7 @@ class CreateUser < ActiveRecord::Migration
       t.string    :password_salt,       :null => false                # optional, but highly recommended
       t.string    :persistence_token,   :null => false                # required
       t.integer   :gold, :default => 0
+      t.string    :role
 
       t.boolean   :superadmin, :default => false
 

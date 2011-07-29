@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  ROLES = %w[admin user guest]
   acts_as_authentic do |c|
     c.login_field = :email
   end
@@ -20,4 +21,14 @@ class User < ActiveRecord::Base
   def required_old_password?
     @old_password_required
   end
+
+  def deliver_register_instructions!
+    reset_persistence_token!
+    UserMailer.welcome_email(self).deliver
+  end
+
+  def role?(base_role)
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+  
 end
