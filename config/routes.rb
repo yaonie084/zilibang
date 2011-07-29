@@ -17,6 +17,7 @@ Zilibang::Application.routes.draw do
   post 'report_employer' => "comments#report_employer", :as => :report_employer
   post 'report_buyer' => "comments#report_buyer", :as => :report_buyer
   post 'verify' => "comments#verify_code", :as => :verify_code
+
   
   resources :users, :only => [:new, :create]
   resources :profiles, :only => [:new, :create, :show]
