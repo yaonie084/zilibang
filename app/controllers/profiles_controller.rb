@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     @profile.save
-    @profile.user.deliver_register_instructions!
+    @profile.user.delay.deliver_register_instructions!
 #    envelope.delay.query_status(delivery)
 
     flash[:notice] = "create_success"
