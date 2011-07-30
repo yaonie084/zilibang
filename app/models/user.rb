@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   validate :validate_old_password, :if => :required_old_password?
   has_one :profile
   has_many :posts
+  has_many :sends, :class_name => "Message", :foreign_key => "sender_id"
+  has_many :receives, :class_name => "Message", :foreign_key => "receiver_id"
   def validate_old_password
     errors.add(:old_password) unless valid_password?(self.old_password)
   end
