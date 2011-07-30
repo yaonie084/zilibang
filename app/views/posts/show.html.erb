@@ -71,7 +71,7 @@
   <% @comments.each do |comment| %>
     <li style="border-bottom:1px solid #ccc">
       <div class="commentmetadata">
-        <strong><a href="#" rel='external nofollow' class='url'> <%= comment.user.profile.name %> </a></strong>, on <%= comment.created_at %> Said&#58;
+        <%= link_to "#{comment.user.profile.name}", profile_path(comment.user.profile) %>, on <%= comment.created_at %> Said&#58;
       </div>
       <% if @post.paid == true and comment.buyer_sure == true and comment.employer_sure == true %>
         <p>电话 <%= comment.user.profile.tel %> </p>
