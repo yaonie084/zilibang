@@ -11,5 +11,48 @@
     </tr>
   </tbody>
 </table>
+<h1 style="color: red">工人经验区</h1>
+<div style="border-bottom: 1px solid #666">
+  <h2>current bids</h2>
+  <% @current_bids.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+
+<div style="border-bottom: 1px solid #666">
+  <h2>current work</h2>
+  <% @current_work.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+
+<div style="border-bottom: 1px solid #666">
+  <h2>passed work</h2>
+  <% @passed_work.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+
+<h1 style="color: red">企业经验区</h1>
+<div style="border-bottom: 1px solid #666">
+  <h2>招标中的工作</h2>
+  <% @bidding_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+
+<div style="border-bottom: 1px solid #666">
+  <h2>进行中的工作</h2>
+  <% @working_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+
+<div style="border-bottom: 1px solid #666">
+  <h2>完成的工作</h2>
+  <% @passed_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
 
 <%= link_to "首页" , root_path()%>
