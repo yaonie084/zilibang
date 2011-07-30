@@ -1,0 +1,12 @@
+<%= form.inputs do %>
+	<%= form.input :title, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :name, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :school, :input_html => { :class => "text-input medium-input" } %>
+	<%= form.input :company, :input_html => { :class => "text-input medium-input" } %>
+        <%= form.input :tel, :input_html => {:class => "text-input medium"} %>
+        <%= form.input :avatar, :as => :file, :hint => "可以不传头像。呵呵" %>
+<% end %>
+
+<%= form.buttons do %>
+	<%= form.commit_button :button_html => { :class => "button" } %>
+<% end %>

@@ -1,0 +1,20 @@
+<h3>修改资料模块</h3>
+
+<ul class="shortcut-buttons-set">
+	<li><%= link_to "返回控制面板", center_root_path(), :class => "shortcut-button home" %></li>
+	<li><%= link_to "返回资料列表", center_profile_path(), :class => "shortcut-button user" %></li>
+</ul>
+
+<div class="clear"></div>
+
+<div class="content-box">
+	<div class="content-box-header">
+		<h3>修改资料</h3>
+	</div>
+
+	<div class="content-box-content">
+		<%= semantic_form_for(@profile, :url => center_update_profile_path) do |f| %>
+			<%= render :partial => 'form', :object => f %>
+		<% end %>
+	</div>
+</div>

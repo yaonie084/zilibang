@@ -36,4 +36,12 @@ Zilibang::Application.routes.draw do
     end
   end
 
+  namespace :center do
+    root :to => "main#index"
+    #resources :profiles, :only => [:show, :edit, :update]
+    get 'profile' => 'profiles#show', :as => :profile
+    get 'profile/edit' => 'profiles#edit', :as => :edit_profile
+    put 'profile' => 'profiles#update', :as => :update_profile
+  end
+
 end

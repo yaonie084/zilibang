@@ -1,0 +1,15 @@
+<table>
+  <tbody>
+    <tr>
+      <td><%= @profile.title %></td>
+      <td><%= @profile.name %></td>
+      <td><%= @profile.male %></td>
+      <td><%= @profile.school %></td>
+      <td><%= @profile.company %></td>
+      <td><%= @profile.tel %></td>
+      <td><%= image_tag @profile.avatar(:normal) %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "修改" , center_edit_profile_url%>
