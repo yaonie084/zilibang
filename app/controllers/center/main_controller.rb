@@ -1,4 +1,4 @@
-class Center::MainController < ApplicationController
+class Center::MainController < Center::BaseController
   def index
   end
 

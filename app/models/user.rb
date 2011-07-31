@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :posts
   has_many :comments
-  has_many :sends, :class_name => "Message", :foreign_key => "sender_id"
-  has_many :receives, :class_name => "Message", :foreign_key => "receiver_id"
+  has_many :sendments, :class_name => "Message", :foreign_key => "sender_id"
+  has_many :receivements, :class_name => "Message", :foreign_key => "receiver_id"
   def validate_old_password
     errors.add(:old_password) unless valid_password?(self.old_password)
   end
@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
 
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
+  end
+
+  def system_messages
+    self.receivements.select {|message| message.sender.id == 1}
   end
   
 end

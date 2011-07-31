@@ -1,4 +1,4 @@
-class Center::ProfilesController < ApplicationController
+class Center::ProfilesController < Center::BaseController
    before_filter :find_profile
   def show
 

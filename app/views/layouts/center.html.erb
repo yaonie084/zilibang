@@ -1,0 +1,13 @@
+<% if @user!= nil and @user.profile!=nil %>
+  <%= link_to @user.profile.name, profile_path(@user.profile) %>
+<% else %>
+  <%= link_to "登入", login_url %>
+<% end %>
+<%= link_to "退出", logout_url %>
+<%= link_to "注册", new_user_url %>
+
+<div style ="border-bottom: 2px solid brown; margin: 2px">
+  <h1>"用户中心"</h1>
+</div>
+
+<%= yield %>
