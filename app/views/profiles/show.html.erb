@@ -54,5 +54,11 @@
     <%= link_to c.title, c %>
   <% end %>
 </div>
+<div style="border-bottom: 1px solid #666">
+  <h2>取得的经验</h2>
+  <% @user.taggings.each do |tagging| %>
+  <span style="margin:2px"> <%= "#{tagging.tag.name}---#{tagging.score}分" %></span>
+  <% end %>
+</div>
 
 <%= link_to "首页" , root_path()%>

@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "messages", :force => true do |t|
-    t.integer  "from",       :null => false
-    t.integer  "to",         :null => false
+    t.integer  "sender_id",   :null => false
+    t.integer  "receiver_id", :null => false
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
     t.integer  "tagger_id"
     t.string   "tagger_type"
     t.string   "context"
+    t.integer  "score",         :default => 0
     t.datetime "created_at"
   end
 

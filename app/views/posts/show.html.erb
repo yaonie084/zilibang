@@ -2,6 +2,12 @@
   <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
     <%= flash[:notice] %></div>
 <% end -%>
+<div style ="border:2px solid #666; width:300px; margin: 4px">
+  <h3>此任务需要的技能</h3>
+  <% @post.skills.each do |skill|%>
+    <%= skill %> |
+  <% end %>
+</div>
 <table border = "1">
   <thead>
     <tr>
@@ -140,10 +146,10 @@
               <div>
 
 
-                <% if comment.user == current_user %>
+                <% if @post.user == current_user %>
                   <div>
                     <% if comment.employer_level == 0 %>
-                      评价企业
+                      评价工人
                       <form accept-charset="UTF-8" action= "<%= report_employer_url %>"  name="report_form" method="post">
                         <input name="content" size="30" type="text" value=""></input>
                         <input name="level" type="text" value=""></input>
@@ -155,10 +161,10 @@
                 <% end %>
 
 
-                <% if @post.user == current_user %>
+                <% if comment.user == current_user %>
                   <div>
                     <% if comment.buyer_level == 0 %>
-                      评价工人
+                      评价企业
                       <form accept-charset="UTF-8" action= "<%= report_buyer_url %>"  name="report_form" method="post">
                         <input name="content" size="30" type="text" value=""></input>
                         <input name="level" type="text" value=""></input>

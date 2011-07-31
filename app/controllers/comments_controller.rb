@@ -56,20 +56,48 @@ class CommentsController < ApplicationController
   end
 
   def report_buyer
+    level = params[:level]
     comment = Comment.find(params[:id])
     comment.buyer_content = params[:content]
     comment.buyer_level = params[:level]
     comment.save
+    user = comment.post.user
+    comment.post.skill_list.each do |tag|
+      add_score!(user, level, tag)
+    end
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
   end
 
   def report_employer
+    level = params[:level]
     comment = Comment.find(params[:id])
     comment.employer_content = params[:content]
-    comment.employer_level = params[:level]
+    comment.employer_level = level
     comment.save
+    user = comment.user
+    comment.post.skill_list.each do |tag|
+      add_score!(user, level, tag)
+    end
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
+  end
+
+
+
+  def add_score!(user, level, tag)
+    tag_id = Tag.find_by_name(tag).id
+    if have_not?(user, tag)
+      user.skill_list << tag
+      user.save
+    end
+    tagging = Tagging.where("taggable_id = #{comment.user_id} AND tag_id = #{tag_id} AND taggable_type = \"User\"").first
+    tagging.score += level.to_i*5
+    tagging.save
+  end
+
+  def have_not?(user, tag)
+    return false if user.skill_list.include?(tag)
+    true
   end
 end

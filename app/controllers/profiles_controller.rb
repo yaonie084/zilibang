@@ -17,6 +17,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @user = @profile.user
     @current_bids = []
     @current_work = []
     @passed_work = []

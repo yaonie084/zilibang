@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   acts_as_authentic do |c|
     c.login_field = :email
   end
-  acts_as_taggable_on :skills, :interests
+  acts_as_taggable_on :skills
   attr_accessor :old_password
   attr_protected :superadmin
   validate :validate_old_password, :if => :required_old_password?

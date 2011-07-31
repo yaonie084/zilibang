@@ -13,7 +13,7 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration
       t.references :tagger, :polymorphic => true
 
       t.string :context
-
+      t.integer :score, :default => 0
       t.datetime :created_at
     end
 
