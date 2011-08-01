@@ -14,7 +14,7 @@ end
 
 Profile.create(:user => @user, :name => "llh")
 
-<<<<<<< HEAD
+# HEAD
 @user = User.find_or_create_by_email("lx@lx.com") do |u|
   u.password = u.password_confirmation = "123456"
   u.gender = "male"
@@ -23,7 +23,7 @@ end
 
 Profile.create(:user => @user, :name => "lx")
 
-=======
+#=======
 @user = User.find_or_create_by_email("1554882772@qq.com") do |u|
   u.password = u.password_confirmation = "123456"
   u.gender = "male"
@@ -32,4 +32,4 @@ Profile.create(:user => @user, :name => "lx")
 end
 
 Profile.create(:user => @user, :name => "wangyu")
->>>>>>> e47acbd13275580b2abd0066255a10cc04964fe2
+#>>>>>>> e47acbd13275580b2abd0066255a10cc04964fe2

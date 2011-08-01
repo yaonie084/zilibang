@@ -11,4 +11,17 @@ class Profile < ActiveRecord::Base
   validates_attachment_size :avatar, :less_than => 2.megabytes
 
   #validates_attachment_presence :avatar
+
+  def url(*args)
+    avatar.url(*args)
+  end
+  alias :public_filename :url
+
+  def url_normal
+    url(:normal)
+  end
+
+  def url_thumb
+    url(:thumb)
+  end
 end

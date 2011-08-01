@@ -1,0 +1,27 @@
+<ul id="main-nav">
+  <%= main_nav(:home, {}) do %>
+    <h3><%= link_to "控制面板", admin_root_path(), :class => "no-submenu" %></h3>
+  <% end %>
+
+  <%= main_nav(:content, {}) do %>
+    <h3>内容管理</h3>
+    <ul>
+      <%= sec_nav :news do %><%= link_to "新闻管理", '' %><% end %>
+      <%= sec_nav :products do %><%= link_to "产品管理", '' %><% end %>
+      <%= sec_nav :messages do %><%= link_to "消息管理", '' %><% end %>
+      <%= sec_nav :categories do %><%= link_to "分类管理", '' %><% end %>
+      <%= sec_nav :rankers do %><%= link_to "排名管理", '' %><% end %>
+
+
+    </ul>
+  <% end %>
+
+  <%= main_nav(:system, {}) do %>
+    <h3>系统管理</h3>
+    <ul>
+      <%= sec_nav :users do %><%= link_to "系统用户管理", admin_users_path() %><% end %>
+      <%= sec_nav :password do %><%= link_to "当前用户密码修改", '' %><% end %>
+      <%= sec_nav :bstar do %><%= link_to "前往cnmtsc前台", root_path(), :target => "_blank" %><% end %>
+    </ul>
+  <% end %>
+</ul>

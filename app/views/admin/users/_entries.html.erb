@@ -2,7 +2,6 @@
 	<thead>
 		<tr>
 			<th><%= :id %></th>
-			<th><%= :login %></th>
 			<th><%= :email %></th>
 			<th><%= :last_request_at %></th>
 			<th><%= :login_count %></th>
@@ -14,13 +13,12 @@
 	<tbody>
 		<% @users.each do |user| %>
 		<tr>
-                        <td><%= image_tag user.url_thumb %></td>
+
 			<td><%= user.id %></td>
-			<td><%= user.login %></td>
 			<td><%= user.email %></td>
-			<td><%= l user.last_request_at, :format => :short if user.last_request_at %></td>
+			<td><%= user.last_request_at %></td>
 			<td><%= user.login_count %></td>
-			<td><%= l user.created_at, :format => :short %></td>
+			<td><%= user.created_at %></td>
 			<td>
 				<%= link_to "edit", edit_admin_user_path(user), :title => :edit, :class => "edit" %>&nbsp;
 				<%= link_to "delete", admin_user_path(user), :method => :delete, :confirm => :delete_confirm, :title => :delete, :class => "delete" %>

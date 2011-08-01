@@ -1,11 +1,12 @@
 class Admin::UsersController < Admin::BaseController
-  #main_nav_highlight :system
-  #sec_nav_highlight :users
+  main_nav_highlight :system
+  sec_nav_highlight :users
   before_filter :find_user, :except => [ :index, :new, :create, :change_password, :update_password ]
 
   def index
-    @scope = User.where(:superadmin => false)
-    @users = @scope.paginate(:page => params[:page])
+#    @scope = User.where(:superadmin => false)
+#    @users = @scope.paginate(:page => params[:page])
+     @users = User.paginate(:page => params[:page])
   end
 
   def new

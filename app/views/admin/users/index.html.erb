@@ -16,6 +16,7 @@
 		<% if @users.blank? %>
 			<p>暂无普通用户记录,您可以<%= link_to "添加用户", new_admin_user_path() %>！</p>
 		<% else %>
+                        <%= @users.count %>
 			<%= render "entries" %>
 		<% end %>
 	</div>
