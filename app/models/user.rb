@@ -37,5 +37,21 @@ class User < ActiveRecord::Base
   def system_messages
     self.receivements.select {|message| message.sender.id == 1}
   end
+
+  def add_score!(level, tag)
+    tag_id = Tag.find_by_name(tag).id
+    if have_not?(tag)
+      self.skill_list << tag
+      self.save
+    end
+    tagging = Tagging.where("taggable_id = #{self.id} AND tag_id = #{tag_id} AND taggable_type = \"User\"").first
+    tagging.score += level.to_i*5
+    tagging.save
+  end
+
+  def have_not?(tag)
+    return false if self.skill_list.include?(tag)
+    true
+  end
   
 end
