@@ -43,6 +43,7 @@ Zilibang::Application.routes.draw do
     get 'profile/edit' => 'profiles#edit', :as => :edit_profile
     put 'profile' => 'profiles#update', :as => :update_profile
     get 'messages' => 'messages#index', :as => :messages
+    get 'message/show/:name' => 'messages#show',  :as => :show_message
     get 'messages/new' => 'messages#new', :as => :new_message
     post 'messages' => 'messages#create'
   end

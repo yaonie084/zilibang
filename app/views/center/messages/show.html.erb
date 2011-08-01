@@ -1,0 +1,27 @@
+<h2 style ="border-bottom: 2px solid black; margin: 2px; width: 200px">站内信</h2>
+<table>
+  <tbody>
+    <% if params[:name] == 'send'   %>
+      <tr>
+        <% @sender_box.each do |message| %>
+      <p>receiver:<%= message.receiver_id %></p>
+      <p>content:<%= message.content %></p>
+    <% end %>
+  </tr>
+<% end %>
+<% if params[:name] == 'receive'%>
+  <% @receiver_box.each do |message| %>
+    <p>sender:<%= message.sender_id %></p>
+    <p>content:<%= message.content %></p>
+  <% end %>
+<% end %>
+<% if params[:name] == 'system' %>
+  <% @receiver_box.each do |message| %>
+    <% if message.sender_id == 1 %>
+    <p>系统信息:</p>
+    <p>content:<%= message.content %></p>
+    <% end %>
+  <% end %>
+<% end %>
+</tbody>
+</table>

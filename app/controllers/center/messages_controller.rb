@@ -6,6 +6,11 @@ class Center::MessagesController < Center::BaseController
     
   end
 
+  def show
+    @sender_box = @user.sendments
+    @receiver_box = @user.receivements
+  end
+
   def new
     @message = @user.sendments.new
   end

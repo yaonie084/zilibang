@@ -22,6 +22,7 @@ class HomeController < ApplicationController
     @post.comments.each do |comment|
       comment.code = verification
       comment.save
+      Message.create(:sender => User.find(1),:receiver => comment.user,:content => "企业已付款")
     end
     flash[:notice] = "支付成功！"
     redirect_to @post

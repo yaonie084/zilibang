@@ -1,3 +1,4 @@
+# coding: utf-8
 class PostsController < ApplicationController
   load_and_authorize_resource
   def index
@@ -60,7 +61,14 @@ class PostsController < ApplicationController
     if current_user == @post.user
       @post.over = true
       @post.save
-      redirect_to post_path(@post)
+      @post.comments.each do |comment|
+        if comment.buyer_sure == true and comment.employer_sure
+          Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标成功")
+        else
+          Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标失败")
+        end
+        redirect_to post_path(@post)
+      end
     end
   end
 
@@ -69,9 +77,15 @@ class PostsController < ApplicationController
     if current_user == @post.user
       @post.finish = true
       @post.save
-      flash[:notice] = "bussiness success"
-      redirect_to post_path(@post)
+      @post.comments.each do |comment|
+        if comment.buyer_sure == true and comment.employer_sure
+          Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"工作完成")
+        end
+      end
     end
+    flash[:notice] = "bussiness success"
+    redirect_to post_path(@post)
   end
+
 
 end

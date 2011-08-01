@@ -1,13 +1,13 @@
 <div>
   <h2 style ="border-bottom: 2px solid black; margin: 2px; width: 200px">站内信</h2>
   <p>
-    <%= "系统消息(#{@system_messages.count})" %>
+    <%= link_to "系统消息(#{@system_messages.count})", center_show_message_path('system') %>
   </p>
   <p>
-    <%= "发件箱(#{@sender_box.count})" %>
+    <%= link_to "发件箱(#{@sender_box.count})", center_show_message_path('send') %>
   </p>
   <p>
-    <%= "收件箱(#{@receiver_box.count})" %>
+    <%= link_to  "收件箱(#{@receiver_box.count})", center_show_message_path('receive') %>
   </p>
   <%= link_to "发送信息", center_new_message_path %>
 </div>
