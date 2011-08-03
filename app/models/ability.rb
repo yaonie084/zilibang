@@ -2,12 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new
+    user ||= User.new(:role => "guest")
     if user.role == "admin"
-      can :manage, Admin
-      can :manage, Post
+      can :manage, :all
+    elsif user.role == "user"
+      can [:index, :show, :add_comment, :new, :create], Post
+      can :manage, Center
+      can :all, Comment
     elsif user.role == "guest"
-      cannot [:show,:index], Post
+      can [:index, :show], Post
     end
   end
 end

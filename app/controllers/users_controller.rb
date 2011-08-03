@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.role = "guest"
     @user.save
     @user.delay.deliver_register_instructions!
     flash[:notice] = "create_successful"
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
   def register_check_instructions
     @user = User.find_using_perishable_token(params[:id])
     if @user != nil
-      @user.role = "admin"
+      @user.role = "user"
       @user.save
       flash[:notice] = "accept your account"
     end

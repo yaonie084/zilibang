@@ -22,7 +22,7 @@ Zilibang::Application.routes.draw do
 
   
   resources :users, :only => [:new, :create]
-  resources :profiles, :only => [:new, :create, :show]
+  resources :profiles, :only => [:show]
   resources :posts do
     post 'add_comment'
   end
