@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
     t.string   "crypted_password",                      :null => false
     t.string   "password_salt",                         :null => false
     t.string   "persistence_token",                     :null => false
+    t.string   "perishable_token",   :default => "",    :null => false
     t.integer  "gold",               :default => 0
     t.string   "role"
     t.boolean  "superadmin",         :default => false

@@ -1,10 +1,19 @@
 <%= form.inputs do %>
-	<%= form.input :email, :input_html => { :class => "text-input medium-input" } %>
-	<%= form.input :password, :input_html => { :class => "text-input medium-input" } %>
-	<%= form.input :password_confirmation, :input_html => { :class => "text-input medium-input" } %>
-        <%= form.collection_select :role, User::ROLES, :to_s, :humanize %>
+  <%= form.input :email, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :password, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :password_confirmation, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.collection_select :role, User::ROLES, :to_s, :humanize %>
+<% end %>
+
+<%= form.inputs :name => "Profile", :for => :profile do |profile_form| %>
+  <%= profile_form.input :title, :input_html => { :class => "text-input medium-input" }  %>
+  <%= profile_form.input :name, :input_html => { :class => "text-input medium-input" }  %>
+  <%= profile_form.input :tel, :input_html => { :class => "text-input medium-input" }  %>
+  <%= profile_form.input :school, :input_html => { :class => "text-input medium-input" }  %>
+  <%= profile_form.input :avatar, :as => :file, :hint => "传头像" %>
+
 <% end %>
 
 <%= form.buttons do %>
-	<%= form.commit_button :button_html => { :class => "button" } %>
+  <%= form.commit_button :button_html => { :class => "button" } %>
 <% end %>

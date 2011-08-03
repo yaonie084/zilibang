@@ -9,8 +9,6 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     @profile.save
-    @profile.user.delay.deliver_register_instructions!
-
     flash[:notice] = "create_success"
     redirect_to profile_path(@profile)
   end

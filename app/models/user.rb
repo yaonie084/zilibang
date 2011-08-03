@@ -6,8 +6,12 @@ class User < ActiveRecord::Base
   acts_as_taggable_on :skills
   attr_accessor :old_password
   attr_protected :superadmin
+  #attr_accessible :profile
   validate :validate_old_password, :if => :required_old_password?
-  has_one :profile
+  has_one :profile, :dependent => :destroy
+  accepts_nested_attributes_for :profile,
+    :allow_destroy => true
+
   has_many :posts
   has_many :comments
   has_many :sendments, :class_name => "Message", :foreign_key => "sender_id"
@@ -26,7 +30,7 @@ class User < ActiveRecord::Base
   end
 
   def deliver_register_instructions!
-    reset_persistence_token!
+    reset_perishable_token!
     UserMailer.welcome_email(self).deliver
   end
 

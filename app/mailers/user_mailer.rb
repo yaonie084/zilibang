@@ -4,7 +4,7 @@ class UserMailer < ActionMailer::Base
   def welcome_email(user)
     @user = user
     @url = "http://localhost:3000"
-    @url += register_check_instructions_path(@user.persistence_token)
+    @url += register_check_instructions_path(@user.perishable_token)
     mail(:to => user.email,
          :subject => "Welcome to Ziqiangbang Site")
   end

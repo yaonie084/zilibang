@@ -5,6 +5,7 @@ class CreateUser < ActiveRecord::Migration
       t.string    :crypted_password,    :null => false                # optional, see below
       t.string    :password_salt,       :null => false                # optional, but highly recommended
       t.string    :persistence_token,   :null => false                # required
+      t.string    :perishable_token,  :default => "", :null => false
       t.integer   :gold, :default => 0
       t.string    :role
 

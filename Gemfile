@@ -11,6 +11,7 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'cancan', "~> 1.6.4"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'formtastic', '~> 1.2.3'
+gem 'dynamic_form'
 gem "paperclip", "~> 2.3"
 gem 'acts-as-taggable-on', "~> 2.0.6"
 gem 'haml'
