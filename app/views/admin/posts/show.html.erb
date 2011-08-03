@@ -1,0 +1,42 @@
+<table border = "1">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>时间</th>
+      <th>电话</th>
+      <th>金额</th>
+      <th>状态</th>
+      <th>发布时间</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @post.title %></td>
+      <td><%= @post.description %></td>
+      <td><%= @post.longtime %>天</td>
+      <td><%= @post.tel %></td>
+      <td><%= "#{@post.low_price} - #{@post.high_price}" %></td>
+      <td>
+        <% if @post.finish == true %>
+          任务完成
+        <% else %>
+          <% if @post. paid == true %>
+            企业已付款，等待工作结束
+          <% else %>
+            <% if @post.over == false %>
+              竞标中
+            <% else %>
+              <% if @post.over == true %>
+                竞标结束,等待企业付款
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= @post.created_at %></td>
+
+    </tr>
+  </tbody>
+</table>

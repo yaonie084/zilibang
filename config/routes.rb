@@ -30,6 +30,7 @@ Zilibang::Application.routes.draw do
   namespace :admin do
     get 'main/index'
     root :to => "main#index"
+    resources :posts
     resources :users do
       collection do
         get "change_password"
