@@ -1,19 +1,20 @@
-<h3>任务管理</h3>
+
+<h3>技能管理模块</h3>
 
 <ul class="shortcut-buttons-set">
 	<li><%= link_to "返回控制面板", admin_root_path(), :class => "shortcut-button home" %></li>
-	<li><%= link_to "返回分类列表", admin_posts_path(), :class => "shortcut-button episode" %></li>
+	<li><%= link_to "返回技能管理列表", admin_tags_path(), :class => "shortcut-button user" %></li>
 </ul>
 
 <div class="clear"></div>
 
 <div class="content-box">
 	<div class="content-box-header">
-		<h3>修改任务</h3>
+		<h3>添加技能</h3>
 	</div>
 
 	<div class="content-box-content">
-		<%= semantic_form_for(@post, :url => post_path(@post)) do |f| %>
+		<%= semantic_form_for(@tag, :url => admin_tags_path(), :html => { :multipart => true }) do |f| %>
 			<%= render :partial => 'form', :object => f %>
 		<% end %>
 	</div>

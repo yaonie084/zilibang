@@ -30,13 +30,17 @@ Zilibang::Application.routes.draw do
   namespace :admin do
     get 'main/index'
     root :to => "main#index"
-    resources :posts
+    resources :posts, :except => [:destroy]
+    post 'posts/:id/destroy' => "posts#destroy", :as => :destroy_post
     resources :users do
       collection do
         get "change_password"
         put "update_password"
       end
     end
+    post 'tags/:id/destroy' => "tags#destroy", :as => :destroy_tag
+    resources :tags, :only => [:index, :new, :create]
+    
   end
 
   namespace :center do

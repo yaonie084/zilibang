@@ -16,6 +16,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
+    buffer_skill = []
+    @post.skill_list.each do |skill|
+      buffer_skill << Tag.find(skill).name
+    end
+    @post.skill_list = buffer_skill
     @post.save
     flash[:notice] = "create_successful"
     #respond_with(@user, :location => root_path())

@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+
+        <td>
+          <%#= link_to "delete", admin_destroy_tag_path(tag), :method => :post, :confirm => :delete, :title => :delete, :class => "delete" %>
+          <form action="<%= admin_destroy_tag_path(tag) %>" method="post">
+            <input class="destroy" id="tag_destroy" type="submit" value="删除"></input>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
