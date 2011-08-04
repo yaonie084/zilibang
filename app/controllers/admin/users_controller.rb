@@ -51,4 +51,6 @@ class Admin::UsersController < Admin::BaseController
   def find_user
     @user = User.find(params[:id])
   end
+
+
 end

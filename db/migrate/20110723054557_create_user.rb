@@ -25,6 +25,8 @@ class CreateUser < ActiveRecord::Migration
     end
 
     add_index :users, :email
+    add_index :users, :persistence_token
+    add_index :users, :perishable_token
   end
 
   def self.down

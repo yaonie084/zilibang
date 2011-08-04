@@ -54,6 +54,9 @@ Zilibang::Application.routes.draw do
     get 'profile' => 'profiles#show', :as => :profile
     get 'profile/edit' => 'profiles#edit', :as => :edit_profile
     put 'profile' => 'profiles#update', :as => :update_profile
+
+    get 'change_password' => 'profiles#change_password', :as => :change_password
+    put 'update_password' => 'profiles#password_update', :as => :update_change_password
     get 'messages' => 'messages#index', :as => :messages
     get 'message/show/:name' => 'messages#show',  :as => :show_message
     get 'messages/new' => 'messages#new', :as => :new_message

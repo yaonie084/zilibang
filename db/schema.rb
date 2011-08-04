@@ -46,8 +46,9 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "messages", :force => true do |t|
-    t.integer  "sender_id",   :null => false
-    t.integer  "receiver_id", :null => false
+    t.integer  "sender_id",                      :null => false
+    t.integer  "receiver_id",                    :null => false
+    t.boolean  "visited",     :default => false
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
