@@ -58,6 +58,7 @@ Zilibang::Application.routes.draw do
     get 'message/show/:name' => 'messages#show',  :as => :show_message
     get 'messages/new' => 'messages#new', :as => :new_message
     post 'messages' => 'messages#create'
+    post 'messages/:id/destroy' =>  'messages#destroy',  :as => :destroy_message
   end
 
 end

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_persistence_token(params[:user][:persistence_token])
+    params[:user][:role] = "user"
     @user.update_attributes(params[:user])
     flash[:notice] = "修改密码成功"
     redirect_to root_url

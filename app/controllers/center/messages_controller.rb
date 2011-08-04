@@ -21,4 +21,11 @@ class Center::MessagesController < Center::BaseController
     @message.save
     redirect_to center_messages_url
   end
+
+  def destroy
+      @message = Message.find(params[:id])
+      @message.destroy
+      
+      redirect_to center_messages_url
+  end
 end

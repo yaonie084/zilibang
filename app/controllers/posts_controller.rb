@@ -72,8 +72,8 @@ class PostsController < ApplicationController
         else
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标失败")
         end
-        redirect_to post_path(@post)
       end
+      redirect_to post_path(@post)
     end
   end
 
