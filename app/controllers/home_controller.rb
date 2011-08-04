@@ -19,11 +19,14 @@ class HomeController < ApplicationController
     @post = Post.find(params[:id])
     @post.paid = true
     @post.save
+    @verify_codes = []
     @post.comments.each do |comment|
       comment.code = verification
       comment.save
+      @verify_codes << comment.user.profile.name.to_s+':'+comment.code.to_s
       Message.create(:sender => User.find(1),:receiver => comment.user,:content => "企业已付款")
     end
+    Message.create(:sender => User.find(1),:receiver => @post.user,:content => "验证码:#{@verify_codes}")
     flash[:notice] = "支付成功！"
     redirect_to @post
     

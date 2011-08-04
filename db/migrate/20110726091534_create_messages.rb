@@ -3,6 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.integer :sender_id, :null => false
       t.integer :receiver_id, :null => false
+      t.boolean :visited, :default => false
       t.text :content
 
       t.timestamps
