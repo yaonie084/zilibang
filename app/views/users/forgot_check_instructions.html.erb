@@ -1,0 +1,12 @@
+您好, <%= @user.profile.name %>,您的邮箱地址是 <%= @user.email %> 在这里你可以重新设置您的密码，以后请妥善保管。
+
+<%= semantic_form_for(@user, :url => update_user_path()) do |form| %>
+  <%= form.inputs do %>
+  <%= form.input :password, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :password_confirmation, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :persistence_token, :as => :hidden%>
+  <% end %>
+<%= form.buttons do %>
+  <%= form.commit_button :button_html => { :class => "button" } %>
+<% end %>
+<% end %>

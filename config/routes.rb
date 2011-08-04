@@ -20,6 +20,11 @@ Zilibang::Application.routes.draw do
   post 'verify' => "comments#verify_code", :as => :verify_code
   get 'mailer' => "home#mailer", :as => :mailer
 
+  get 'forgot_password' => "users#forgot_password", :as => :forgot_password
+  post 'forgot_password_sender' => "users#forgot_password_sender", :as => :forgot_password_sender
+  get 'forgot_check_instructions/:id' => "users#forgot_check_instructions", :as => :forgot_check_instructions
+  put 'update_user' => "users#update", :as => :update_user
+
   
   resources :users, :only => [:new, :create]
   resources :profiles, :only => [:show]

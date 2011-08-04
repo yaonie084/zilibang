@@ -34,6 +34,11 @@ class User < ActiveRecord::Base
     UserMailer.welcome_email(self).deliver
   end
 
+  def deliver_forgot_instructions!
+    reset_perishable_token!
+    UserMailer.forgot_email(self).deliver
+  end
+
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
