@@ -132,7 +132,7 @@
         <% end %>
       </p>
 
-      <% if @post.paid == true %>
+      <% if @post.paid == true and comment.user == current_user%>
         <% if comment.buyer_sure == true and comment.employer_sure == true  %>
           <% if comment.verified == false %>
             <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" method="post">
