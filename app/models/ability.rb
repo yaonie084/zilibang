@@ -6,7 +6,7 @@ class Ability
     if user.role == "admin"
       can :manage, :all
     elsif user.role == "user"
-      can [:index, :show, :add_comment, :new, :create], Post
+      can [:index, :show, :add_comment, :new, :create, :over, :finish], Post
       can :manage, Center
       can :all, Comment
     elsif user.role == "guest"
