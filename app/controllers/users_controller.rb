@@ -8,11 +8,26 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.role = "guest"
-    @user.save
-    @user.delay.deliver_register_instructions!
-    flash[:notice] = "create_successful"
+    if @user.valid?
+      @user.save
+      @user.delay.deliver_register_instructions!
+      flash[:notice] = "创建成功"
+      redirect_to root_path()
+    else
+      flash[:notice] = []
+      @user.errors.each do |key, value|
+        flash[:notice] << "#{key}:#{value}"
+      end
+      #flash[:notice] = @user.errors
+      #flash[:notice] = "请检查您输入的注册信息是否正确"
+      #puts "............................\n"
+      #puts flash[:notice]
+      #redirect_to new_user_path
+      render :action => :new
+    end
+    
     #respond_with(@user, :location => root_path())
-    redirect_to root_path()
+    
   end
 
   def update

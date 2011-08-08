@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin user guest]
+  validates :email, :presence => true
+  validates :password, :presence => true
   acts_as_authentic do |c|
     c.login_field = :email
   end
@@ -8,6 +10,7 @@ class User < ActiveRecord::Base
   attr_protected :superadmin
   #attr_accessible :profile
   validate :validate_old_password, :if => :required_old_password?
+
   has_one :profile, :dependent => :destroy
   accepts_nested_attributes_for :profile,
     :allow_destroy => true

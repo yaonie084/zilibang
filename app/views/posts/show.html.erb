@@ -1,7 +1,4 @@
-<% if flash[:notice] -%>
-  <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
-    <%= flash[:notice] %></div>
-<% end -%>
+
 <div style ="border:2px solid #666; width:300px; margin: 4px">
   <h3>此任务需要的技能</h3>
   <% @post.skills.each do |skill|%>

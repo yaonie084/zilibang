@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/bcardarella/client_side_validations.git
+  revision: 82ebd07a5fa1ef0b291da5787612a6b4c480dc9d
+  specs:
+    client_side_validations (3.1.0)
+
+GIT
   remote: git://github.com/collectiveidea/delayed_job.git
   revision: 4b0f030982721f6ba829f557f3a297e6bfd0b355
   specs:
@@ -127,6 +133,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.0.6)
   authlogic!
   cancan (~> 1.6.4)
+  client_side_validations!
   delayed_job!
   delayed_job_active_record!
   dynamic_form

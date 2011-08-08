@@ -1,3 +1,4 @@
+# coding: utf-8
 class UserSessionsController < ApplicationController
   def new
     @user_session = UserSession.new
@@ -6,8 +7,9 @@ class UserSessionsController < ApplicationController
   def create
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
-      redirect_to root_path(), :notice => "login_success"
+      redirect_to root_path(), :notice => "登录成功哦～"
     else
+      flash[:notice] = "登录失败"
       render :action => :new
     end
   end

@@ -20,6 +20,7 @@ gem 'activemerchant', :require => "active_merchant"
 gem 'activemerchant_patch_for_china', '0.1.6'
 gem 'delayed_job', :git => 'git://github.com/collectiveidea/delayed_job.git'
 gem 'delayed_job_active_record', :git => 'git://github.com/collectiveidea/delayed_job_active_record.git'
+gem 'client_side_validations', :git => 'git://github.com/bcardarella/client_side_validations.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'
