@@ -1,0 +1,170 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+body {
+    background: #fff;
+    color: #9391AC;
+    color: rgba(147, 145, 172, 1);
+    font-family: 'Helvetica Neue', Helvetica, Arial Geneva, sans-serif;
+    font-size: 13px;
+    text-align: center;
+}
+
+#header {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: arial, helvetica, sans-serif;
+    vertical-align: baseline;
+    width: 1500px;
+    background-color: #fff;
+}
+
+#navigation {
+    min-width: 1500px;
+    height: 50px;
+    background: url(/images/header_bg1.png) top repeat-x;
+}
+
+.total-preview {
+    width:600px;
+    height:43px;
+    background: url(/images/header_new_bg.png) repeat-x;
+    /*    padding: 10px;*/
+}
+
+.user-used{
+    width: 513px;
+    margin-top:10px;
+}
+
+.user-used .login a{
+    display: block;
+    width: 141px;
+    height: 30px;
+    padding-top: 5px;
+    background-image: url(/images/header_login_img1.png);
+    background-repeat: no-repeat;
+    color:azure;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.user-used .signup a{
+    display: block;
+    padding-top: 5px;
+    width: 141px;
+    height: 30px;
+    background: url(/images/header_login_img2.png) no-repeat;
+    color:azure;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#header #ziqiangbang-logo {
+    float: left;
+}
+.ziqiangbang-logo2 {
+    display: block;
+    overflow: hidden;
+    width: 94px;
+    height: 43px;
+    background-image: url(/images/header_new_logo.png);
+    background-repeat: no-repeat;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+#header #ziqiangbang-logo a {
+    display: block;
+    text-indent: -9999px;
+    width: 287px;
+    height: 127px;
+    overflow: hidden;
+    background-image: url(/images/logo.png);
+    background-repeat: no-repeat;
+}
+
+#ziqiangbang-banner {
+    width: 1500px;
+    height: 406px;
+    background: url(/images/header_bg3.png) top repeat-x;
+}
+
+.ziqiangbang-space {
+    width:200px;
+    float:left;
+    height:10px;
+}
+
+.c {
+    clear:both
+}
+
+#intro {
+    float: left;
+    width: 710px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.welcome-list {
+    margin: 5px 0 15px 0;
+    list-style: none;
+
+}
+
+.welcome-list li {
+    margin-bottom: 12px;
+    font-weight: normal !important;
+    padding: 0 0 0 25px;
+    /*padding-left: 20px;*/
+    line-height: 17px;
+    background: url(/images/s_icon.png) no-repeat;
+}
+
+#enter{
+    padding-top: 20px;
+    width:540px;
+}
+
+.post-button a{
+    display: block;
+    text-indent: -9999px;
+    width: 311px;
+    height: 70px;
+    overflow: hidden;
+    background-image: url(/images/header_button1.png);
+    background-repeat: no-repeat;
+}
+
+.view-list-button a{
+    display: block;
+    margin-top: 55px;
+    text-indent: -9999px;
+    width: 311px;
+    height: 70px;
+    overflow: hidden;
+    background-image: url(/images/header_button2.png);
+    background-repeat: no-repeat;
+
+}
+
