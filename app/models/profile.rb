@@ -1,6 +1,7 @@
 class Profile < ActiveRecord::Base
   belongs_to :user
   validates :name, :presence => true
+  validates_length_of :name, :in => 2..8
   has_attached_file :avatar,
     :url  => "/system/profiles/:id/:style_:basename.:extension",
     :path => ":rails_root/public/system/profiles/:id/:style_:basename.:extension",

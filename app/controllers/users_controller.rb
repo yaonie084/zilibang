@@ -14,10 +14,10 @@ class UsersController < ApplicationController
       flash[:notice] = "创建成功"
       redirect_to root_path()
     else
-      flash[:notice] = []
-      @user.errors.each do |key, value|
-        flash[:notice] << "#{key}:#{value}"
-      end
+#      flash[:notice] = []
+#      @user.errors.each do |key, value|
+#        flash[:notice] << "#{key}:#{value}"
+#      end
       #flash[:notice] = @user.errors
       #flash[:notice] = "请检查您输入的注册信息是否正确"
       #puts "............................\n"
