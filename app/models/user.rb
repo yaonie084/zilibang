@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin user guest]
-  validates :email, :presence => true
-  validates :password, :presence => true
+#  validates :email, :presence => true
+#  validates :password, :presence => true
   acts_as_authentic do |c|
     c.login_field = :email
   end
@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
 
   def add_score!(level, tag)
     tag_id = Tag.find_by_name(tag).id
+
     if have_not?(tag)
       self.skill_list << tag
       self.save

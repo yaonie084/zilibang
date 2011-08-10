@@ -72,7 +72,8 @@ class CommentsController < ApplicationController
     Message.create(:sender => User.find(1),:receiver => comment.post.user,:content =>"用户已评价")
     user = comment.post.user
     comment.post.skill_list.each do |tag|
-      user.delay.add_score!(level, tag)
+      puts "#{tag}--\n"
+      user.add_score!(level, tag)
     end
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
@@ -87,7 +88,7 @@ class CommentsController < ApplicationController
     Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业已评价")
     user = comment.user
     comment.post.skill_list.each do |tag|
-      user.delay.add_score!(level, tag)
+      user.add_score!(level, tag)
     end
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
