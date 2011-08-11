@@ -14,6 +14,7 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial Geneva, sans-serif;
     font-size: 13px;
     text-align: center;
+	background:url(/images/aa.png) top left repeat-x;
 }
 
 #header {
@@ -26,7 +27,6 @@ body {
     font-size: 100%;
     font-family: arial, helvetica, sans-serif;
     vertical-align: baseline;
-    width: 1500px;
     background-color: #fff;
 }
 

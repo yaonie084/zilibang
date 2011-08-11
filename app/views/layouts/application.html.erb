@@ -1,146 +1,125 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Zilibang</title>
-    <%= stylesheet_link_tag :all %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>自强帮 | 大学生兼职平台</title>
+    <%= stylesheet_link_tag "header", "container", "footer" %>
     <%= javascript_include_tag 'defaults', 'jquery-1.5.1.js', 'rails.validations' -%>
     <%= csrf_meta_tag %>
   </head>
-  <body>
+  <body class="home">
     <% if flash[:notice] -%>
-  <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
-
-    <ul>
-  <%# flash[:notice].each do |x| %>
-    <%#*<li>%>
-      <%#= "#{x.key}: #{x.value}" %>
-    <%#*</li>%>
-    <%# end   %>
-      <%= flash[:notice] %>
-    </ul>
-  </div>
-<% end -%>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>自强帮 | 大学生兼职平台</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-        <link href="header.css" rel="stylesheet" type="text/css" />
-        <link href="container.css" rel="stylesheet" type="text/css" />
-        <link href="footer.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body class="home">
-        <div id="header">
-            <div id="navigation">
-                <div class="ziqiangbang-space"></div>
-                <h5 id="ziqiangbang-logo"><a href="/">自强帮</a></h5>
-                <div class="ziqiangbang-space left" style="width: 450px"></div>
-                <div class="user-used left">
-                    
-    <% if current_user!= nil and current_user.profile!=nil %>
-       <div class="login left"> <%= link_to "hi,#{current_user.profile.name}", profile_path(current_user.profile), :class => "login" %> </div>
-                      <div class="signup left"><%=link_to "退 出",  logout_url, :class => "signup" %></div>
-    <% else %>
-      <div class="login left"> <%=link_to "登 录",  login_url, :class => "login" %> </div>
-      <div class="signup left"><%=link_to "注 册",  new_user_url, :class => "signup" %></div>
-    <% end %>
-                      
-                      </div>
-                    
-                
+      <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
+          <%= flash[:notice] %>
+      </div>
+    <% end -%>
+    <div id="header">
+      <div id="navigation">
+        <div class="ziqiangbang-space"></div>
+        <h5 id="ziqiangbang-logo"><a href="/">自强帮</a></h5>
+        <div class="ziqiangbang-space left" style="width: 450px"></div>
+        <div class="user-used left">
+          <% if current_user!= nil and current_user.profile!=nil %>
+            <div class="login left"> <%= link_to "hi,#{current_user.profile.name}", profile_path(current_user.profile), :class => "login" %> </div>
+            <div class="signup left"><%=link_to "退 出",  logout_url, :class => "signup" %></div>
+          <% else %>
+            <div class="login left"> <%=link_to "登 录",  login_url, :class => "login" %> </div>
+            <div class="signup left"><%=link_to "注 册",  new_user_url, :class => "signup" %></div>
+          <% end %>
+        </div>
 
 
 
-                <div class="c"></div>
-            </div>
-            <div id="ziqiangbang-banner">
-                <div class="ziqiangbang-space left" style="width:200px; min-height:77px;"></div>
-                <div class="total-preview left" align="left">
-                    <div style="padding:13px;" class="left">
-                        <b style="font-weight:bold;font-size:16px;color: #666">累计所有:</b>
-                        |
-                        <b style="color:#666"> ngo:1000000元</b>
-                        |
-                        <b style="color:#666"> 任务总数:10000个</b>
-                        |
-                        <b style="color:#666"> 人才数:1000000个</b>
+        <div class="c"></div>
+      </div>
+      <div id="ziqiangbang-banner">
+        <div class="ziqiangbang-space left" style="width:200px; min-height:77px;"></div>
+        <div class="total-preview left" align="left">
+          <div style="padding:13px;" class="left">
+            <b style="font-weight:bold;font-size:16px;color: #666">累计所有:</b>
+            |
+            <b style="color:#666"> ngo:1000000元</b>
+            |
+            <b style="color:#666"> 任务总数:10000个</b>
+            |
+            <b style="color:#666"> 人才数:1000000个</b>
 
-                    </div>
-                    <div class="ziqiangbang-logo2 right">
+          </div>
+          <div class="ziqiangbang-logo2 right">
 
-                    </div>
+          </div>
 
-                </div>
-                <div class="ziqiangbang-space" style="width:800px; min-height:34px;"></div>
-                <div class="c"></div>
-                <div class="ziqiangbang-space left"></div>
-                <div id="intro">
+        </div>
+        <div class="ziqiangbang-space" style="width:800px; min-height:34px;"></div>
+        <div class="c"></div>
+        <div class="ziqiangbang-space left"></div>
+        <div id="intro">
 
-                    <div style="text-shadow: 1px 1px 1px #666;font-size: 36px;font-weight: bold;" align="left">
+          <div style="text-shadow: 1px 1px 1px #666;font-size: 36px;font-weight: bold;" align="left">
 			自强帮的初衷
-                    </div>
+          </div>
 
-                    <div style="padding:6px;font-size: 15px;font-weight: bold;" align="left">
-                        <p>自强帮由一个简单的想法，一个积极向上的生活，一个努力帮助他人的心态，</p>
-                        <p>一个只属于完善人格的每一位伙伴所存在的一个平台。</p>
-                    </div>
+          <div style="padding:6px;font-size: 15px;font-weight: bold;" align="left">
+            <p>自强帮由一个简单的想法，一个积极向上的生活，一个努力帮助他人的心态，</p>
+            <p>一个只属于完善人格的每一位伙伴所存在的一个平台。</p>
+          </div>
 
-                    <div align="left" style="padding:6px; font-size: 10px; width:400px" class="left">
-                        <ul class="welcome-list">
-                            <li>一个简单的想法，大学生是不是应该独立了？</li>
-                            <li>是不是应该不向家里伸手要生活费了？</li>
-                            <li>是不是应该抛弃恶习不断完善自己？</li>
-                            <li>那么我想告诉大家，自强帮就是“自立自强，帮助他人”</li>
-                            <li>一些需要帮助的人可能此时整需要我们的一臂之力。</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div id="enter" class="left">
-                    <div class="post-button">
-                        <%= link_to "发布任务", new_post_url %>
-                    </div>
-                    <div class="view-list-button">
-                        <%= link_to "任务列表", posts_url %>
-                    </div>
-                </div>
-            </div>
+          <div align="left" style="padding:6px; font-size: 10px; width:400px" class="left">
+            <ul class="welcome-list">
+              <li>一个简单的想法，大学生是不是应该独立了？</li>
+              <li>是不是应该不向家里伸手要生活费了？</li>
+              <li>是不是应该抛弃恶习不断完善自己？</li>
+              <li>那么我想告诉大家，自强帮就是“自立自强，帮助他人”</li>
+              <li>一些需要帮助的人可能此时整需要我们的一臂之力。</li>
+            </ul>
+          </div>
 
         </div>
-    <%= yield %>
 
+        <div id="enter" class="left">
+          <div class="post-button">
+            <%= link_to "发布任务", new_post_url %>
+          </div>
+          <div class="view-list-button">
+            <%= link_to "任务列表", posts_url %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="container">
+      <%= yield %>
+    </div>
+    <div class="ziqiangbang-space" style="width:1500px;height: 20px;"></div>
+    <div style="background:url(images/bb.png) bottom left repeat-x;">
       <div id="footer">
-            <div class="ziqiangbang-space" style="height: 40px;width: 1500px;"></div>
-            <div class="who-am-i" align="left">
-                <div class="who-about left">
-                    <h4>自强帮是做什么的? </h4>
-                    <p><a href="/">Ziqiangbang.com
-                            <span>(自强帮) 是一个提供大学生诚信兼职的平台</span></a>.
-                        在这里不管别人对你做了什么坏事，或者是你对别人做了什么事，反正不关我们的事！已经有了来自20个省市自治区，超过
-                        <span class="COUNT-REGISTERED-USER">2,730,471</span>个
-                        大学生及社会人士注册了我们网站的会员。
-                        这里反正是申明责任的地方
-                    </p>
-                    <div class="copy">
-                        <em>(c) Copyright 2011 Ziqiangbang Technology Pty Limited. All Rights Reserved.</em>
-                        <em>Ziqiangbang is a trademark of Ziqiangbang Technology Pty Limited (ACN 888 888 888)</em>
-                    </div>
-                </div>
-                <div class="twi left">
-                    <a href="#">twitter Our Jobs</a>
-                </div>
-                <div class="twi left">
-                    <a href="#">twitter Our Lancers</a>
-                </div>
-                <div class="footer-logo right">
-                </div>
+        <div class="ziqiangbang-space" style="height: 40px;width: 1500px;"></div>
+        <div class="who-am-i" align="left">
+          <div class="who-about left">
+            <h4>自强帮是做什么的? </h4>
+            <p><a href="http://www.freelancer.com">Freelancer.com
+                <span>(自强帮) 是一个提供大学生诚信兼职的平台</span></a>.
+              在这里不管别人对你做了什么坏事，或者是你对别人做了什么事，反正不关我们的事！已经有了来自20个省市自治区，超过
+              <span class="COUNT-REGISTERED-USER">2,730,471</span>个
+              大学生及社会人士注册了我们网站的会员。
+              这里反正是申明责任的地方
+            </p>
+            <div class="copy">
+              <em>(c) Copyright 2011 Ziqiangbang Technology Pty Limited. All Rights Reserved.</em>
+              <em>Ziqiangbang is a trademark of Ziqiangbang Technology Pty Limited (ACN 888 888 888)</em>
             </div>
+          </div>
+          <div class="twi left">
+            <a href="#">twitter Our Jobs</a>
+          </div>
+          <div class="twi left">
+            <a href="#">twitter Our Lancers</a>
+          </div>
+          <div class="footer-logo right">
+          </div>
         </div>
-        <div style="width: 1500px;height: 200px;">
-        </div>
-
+      </div>
+    </div>
   </body>
 </html>

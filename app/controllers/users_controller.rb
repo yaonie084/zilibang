@@ -1,5 +1,6 @@
 # coding: utf-8
 class UsersController < ApplicationController
+  #layout :nil
   def new
     @user = User.new
     @user.build_profile

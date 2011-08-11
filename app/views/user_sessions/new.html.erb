@@ -1,18 +1,22 @@
 <%= form_for @user_session, :url => user_session_path() do |f| %>
-<p>
-	<%= f.label :email, "邮箱" %>
-	<%= f.text_field :email, :class => "text-input" %>
-</p>
-<div class="clear"></div>
-<p>
-	<%= f.label :password, "密码" %>
-	<%= f.password_field :password, :class => "text-input" %>
-</p>
+  <p>
 
-<div class="clear"></div>
-<p>
-	<%= f.submit "登录", :class => "button" %>
-</p>
+    <%= f.text_field :email, :class => "text-input", :id => "input1" %>
+  </p>
+  <div class="clear"></div>
+  <p>
+
+    <%= f.password_field :password, :class => "text-input", :id => "input2" %>
+  </p>
+
+  <div class="clear"></div>
+  <p>
+  <div id="img1">
+    <span id ="authlogic-login"><%= f.submit "", :class => "button" %></span>
+    <span><%= link_to "", new_user_url, :id => "authlogic-signup"%></span>
+    <%= link_to "忘记密码[?]", forgot_password_path() %>
+  </div>
+  
+  </p>
 <% end %>
 
-<%= link_to "忘记密码", forgot_password_path() %>
