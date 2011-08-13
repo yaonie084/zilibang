@@ -1,12 +1,12 @@
 <%= form_for @user_session, :url => user_session_path() do |f| %>
   <p>
-
-    <%= f.text_field :email, :class => "text-input", :id => "input1" %>
+    <%= f.label :email, "邮箱", :id => "label1" %>
+    <%= f.text_field :email, :id => "input1" %>
   </p>
   <div class="clear"></div>
   <p>
-
-    <%= f.password_field :password, :class => "text-input", :id => "input2" %>
+    <%= f.label :password, "密码", :id => "label2" %>
+    <%= f.password_field :password, :id => "input2" %>
   </p>
 
   <div class="clear"></div>

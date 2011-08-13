@@ -10,7 +10,8 @@
     vertical-align: baseline;
     width: 1500px;
     height: 357px;
-    background: url(/images/footer_bg2.png) top repeat-x;
+/*    background: url(/images/footer_bg2.png) top repeat-x;*/
+background: url(/images/bb.png) bottom left repeat-x
 }
 
 .who-am-i {

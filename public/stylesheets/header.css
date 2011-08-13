@@ -11,7 +11,7 @@ body {
     background: #fff;
     color: #9391AC;
     color: rgba(147, 145, 172, 1);
-    font-family: 'Helvetica Neue', Helvetica, Arial Geneva, sans-serif;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
     font-size: 13px;
     text-align: center;
 	background:url(/images/aa.png) top left repeat-x;
@@ -25,7 +25,7 @@ body {
     font-weight: inherit;
     font-style: inherit;
     font-size: 100%;
-    font-family: arial, helvetica, sans-serif;
+    font-family: 宋体, Arial, Helvetica, sans-serif;
     vertical-align: baseline;
     background-color: #fff;
 }
@@ -106,6 +106,7 @@ body {
     width: 1500px;
     height: 406px;
     background: url(/images/header_bg3.png) top repeat-x;
+/*    background: url(images/aa.png) bottom left repeat-x;*/
 }
 
 .ziqiangbang-space {

@@ -11,19 +11,11 @@ class UsersController < ApplicationController
     @user.role = "guest"
     if @user.valid?
       @user.save
+      @user.reset_perishable_token!
       @user.delay.deliver_register_instructions!
       flash[:notice] = "创建成功"
       redirect_to root_path()
     else
-#      flash[:notice] = []
-#      @user.errors.each do |key, value|
-#        flash[:notice] << "#{key}:#{value}"
-#      end
-      #flash[:notice] = @user.errors
-      #flash[:notice] = "请检查您输入的注册信息是否正确"
-      #puts "............................\n"
-      #puts flash[:notice]
-      #redirect_to new_user_path
       render :action => :new
     end
     
@@ -41,6 +33,9 @@ class UsersController < ApplicationController
 
   def register_check_instructions
     @user = User.find_using_perishable_token(params[:id])
+    puts "--------------------\n"
+    puts @user
+    
     if @user != nil
       @user.role = "user"
       @user.save

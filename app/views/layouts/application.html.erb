@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>自强帮 | 大学生兼职平台</title>
     <%= stylesheet_link_tag "header", "container", "footer" %>
-    <%= javascript_include_tag 'defaults', 'jquery-1.5.1.js', 'rails.validations' -%>
+    <%= javascript_include_tag 'jquery-1.5.1.js', 'application', 'rails.validations' -%>
     <%= csrf_meta_tag %>
   </head>
   <body class="home">
@@ -55,11 +55,11 @@
         <div class="ziqiangbang-space left"></div>
         <div id="intro">
 
-          <div style="text-shadow: 1px 1px 1px #666;font-size: 36px;font-weight: bold;" align="left">
+          <div style="text-shadow: 1px 1px 1px #666;font-size: 36px;font-weight: bold;font-family:黑体;" align="left">
 			自强帮的初衷
           </div>
 
-          <div style="padding:6px;font-size: 15px;font-weight: bold;" align="left">
+          <div style="padding:6px;font-size: 15px;font-weight: bold;font-family:黑体;" align="left">
             <p>自强帮由一个简单的想法，一个积极向上的生活，一个努力帮助他人的心态，</p>
             <p>一个只属于完善人格的每一位伙伴所存在的一个平台。</p>
           </div>
@@ -92,13 +92,13 @@
       <%= yield %>
     </div>
     <div class="ziqiangbang-space" style="width:1500px;height: 20px;"></div>
-    <div style="background:url(images/bb.png) bottom left repeat-x;">
+    <div style="background:url(/images/bb.png) bottom left repeat-x;">
       <div id="footer">
         <div class="ziqiangbang-space" style="height: 40px;width: 1500px;"></div>
         <div class="who-am-i" align="left">
           <div class="who-about left">
             <h4>自强帮是做什么的? </h4>
-            <p><a href="http://www.freelancer.com">Freelancer.com
+            <p><a href="/">Ziqiangbang.com
                 <span>(自强帮) 是一个提供大学生诚信兼职的平台</span></a>.
               在这里不管别人对你做了什么坏事，或者是你对别人做了什么事，反正不关我们的事！已经有了来自20个省市自治区，超过
               <span class="COUNT-REGISTERED-USER">2,730,471</span>个

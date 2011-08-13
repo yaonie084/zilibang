@@ -1,6 +1,7 @@
 # coding: utf-8
 class HomeController < ApplicationController
   def index
+    @posts = Post.limit(10).order("created_at DESC")
   end
 
   def pay_sure
@@ -18,6 +19,7 @@ class HomeController < ApplicationController
   def pay
     @post = Post.find(params[:id])
     @post.paid = true
+    @post.state = "雇主已经预付押金，等待中标者输入提现密码。"
     @post.save
     @verify_codes = []
     @post.comments.each do |comment|

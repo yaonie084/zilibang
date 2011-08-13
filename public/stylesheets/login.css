@@ -3,42 +3,55 @@
 *{margin:0px; padding:0px; text-align:center; text-decoration:none; list-style-type:none; border:0;}
 html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {margin:0px; padding:0px; text-align:center; text-decoration:none; list-style-type:none;}
 body{
-	background:#2A5187 url(/images/login_bg.ipg) no-repeat top center;
-	}
-	.login{
-		height:443px;
-		width:1000px;
-		margin:0 auto;
-		margin-top:120px;
-		background:url(/images/login_img1.png) no-repeat top center;
-		position:relative;}
-		
+    background:#2A5187 url(/images/login_bg.ipg) no-repeat top center;
+}
+.login{
+    height:443px;
+    width:1000px;
+    margin:0 auto;
+    margin-top:120px;
+    background:url(/images/login_img1.png) no-repeat top center;
+    position:relative;}
+
 #img1{
-	position:absolute;
-	top:253px;
-	left:335px;}
+    position:absolute;
+    top:253px;
+    left:335px;}
+
+#label1{
+    position:absolute;
+    top:148px;
+    left:350px;
+    text-shadow: 1px 1px 1px #7D7D7D;
+}
+#label2{
+    position:absolute;
+    top:200px;
+    left:350px;
+    text-shadow: 1px 1px 1px #7D7D7D;
+}
 #input1{
-	position:absolute;
-	top:150px;
-	left:450px;}
+    position:absolute;
+    top:150px;
+    left:400px;}
 #input2{
-	position:absolute;
-	top:202px;
-	left:450px;}
-	#footer{
-  width:1000px;
-  height:30px;
-  font-family:"宋体";
-  font-size:12px;
-  color:white;
-  margin:0px auto;
-  margin-top:10px;
-  }
+    position:absolute;
+    top:202px;
+    left:400px;}
+#footer{
+    width:1000px;
+    height:30px;
+    font-family:"宋体";
+    font-size:12px;
+    color:white;
+    margin:0px auto;
+    margin-top:10px;
+}
 #footer ul{
- 
-  text-decoration:none;
-  text-align:center;
-  list-style:none;
+
+    text-decoration:none;
+    text-align:center;
+    list-style:none;
 }
 
 #authlogic-signup {

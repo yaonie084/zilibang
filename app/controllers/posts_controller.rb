@@ -21,6 +21,7 @@ class PostsController < ApplicationController
       buffer_skill << Tag.find(skill).name
     end
     @post.skill_list = buffer_skill
+    @post.state = "火热竞标中"
     @post.save
     flash[:notice] = "create_successful"
     #respond_with(@user, :location => root_path())
@@ -65,6 +66,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if current_user == @post.user
       @post.over = true
+      @post.state = "竞标结束，等待雇主付押金"
       @post.save
       @post.comments.each do |comment|
         if comment.buyer_sure == true and comment.employer_sure
@@ -80,6 +82,7 @@ class PostsController < ApplicationController
   def finish
     @post = Post.find(params[:id])
     if current_user == @post.user
+      @post.state = "任务结束，请互相评分来提高信用等级"
       @post.finish = true
       @post.save
       @post.comments.each do |comment|
