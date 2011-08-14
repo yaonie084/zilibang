@@ -9,7 +9,7 @@ class Admin::PostsController < Admin::BaseController
     @posts = Post.all
   end
 
- def show
+  def show
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = @post.comments.new
@@ -34,7 +34,18 @@ class Admin::PostsController < Admin::BaseController
   
   def update
     @post = Post.find(params[:id])
+    @post.skill_list = []
+    @post.save
+    buffer = []
+    params[:post]["skill_list"] = params[:post]["skill_ids"][1..-1]
+    params[:post]["skill_list"].each do |tag|
+      buffer << tag
+    end
+    params[:post].delete("skill_list")
+    params[:post].delete("skill_ids")
+    @post.skill_list = buffer
     @post.update_attributes(params[:post])
+
     flash[:notice] = "update_successful"
     redirect_to admin_posts_path()
   end

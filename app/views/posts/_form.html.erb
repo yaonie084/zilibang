@@ -9,7 +9,7 @@
   <%= form.input :tel, :input_html => { :class => "text-input medium-input" } %>
   <%= form.input :low_price, :input_html => { :class => "text-input medium-input" } %>
   <%= form.input :high_price, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :skill_list, :as => :check_boxes, :collection => Tag.all%>
+  <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name %>
 <% end %>
 
 <%= form.buttons do %>

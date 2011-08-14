@@ -6,7 +6,6 @@ zh-CN:
   activerecord:
     errors:
       messages:
-        record_invalid: "校验失败: {{errors}}"
         inclusion: "不包含于列表中"
         exclusion: "是保留关键字"
         invalid: "是无效的"

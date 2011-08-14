@@ -1,4 +1,5 @@
 # coding: utf-8
+require "pp"
 class PostsController < ApplicationController
   load_and_authorize_resource
   def index
@@ -16,11 +17,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
-    buffer_skill = []
-    @post.skill_list.each do |skill|
+    buffers = []
+    @post.skills.each do |skill|
       buffer_skill << Tag.find(skill).name
     end
-    @post.skill_list = buffer_skill
+    @post.skills = buffers
     @post.state = "火热竞标中"
     @post.save
     flash[:notice] = "create_successful"
@@ -34,7 +35,18 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.skill_list = []
+    @post.save
+    buffer = []
+    params[:post]["skill_list"] = params[:post]["skill_ids"][1..-1]
+    params[:post]["skill_list"].each do |tag|
+      buffer << tag
+    end
+    params[:post].delete("skill_list")
+    params[:post].delete("skill_ids")
+    @post.skill_list = buffer
     @post.update_attributes(params[:post])
+    
     flash[:notice] = "update_successful"
     redirect_to posts_path()
   end
