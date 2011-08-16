@@ -1,5 +1,4 @@
 # coding: utf-8
-require "pp"
 class PostsController < ApplicationController
   load_and_authorize_resource
   def index
@@ -24,10 +23,15 @@ class PostsController < ApplicationController
     end
     @post.skills = buffers
     @post.state = "火热竞标中"
-    @post.save
-    flash[:notice] = "create_successful"
-    #respond_with(@user, :location => root_path())
-    redirect_to posts_path()
+    if @post.valid_with_captcha?
+      @post.save
+      flash[:notice] = "创建成功"
+      #respond_with(@user, :location => root_path())
+      redirect_to posts_path()
+    else
+      flash[:notice] = "输入信息有错误"
+      redirect_to new_post_url
+    end
   end
 
   def edit
@@ -72,9 +76,14 @@ class PostsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.post_id = params[:post_id]
-    @comment.save
-    flash[:notice] = "add comment success"
-    redirect_to post_path(@comment.post_id)
+    if @comment.valid_with_captcha?
+      @comment.save
+      flash[:notice] = "add comment success"
+      redirect_to post_path(@comment.post_id)
+    else
+      flash[:notice] = "输入错误"
+      redirect_to post_path(@comment.post_id)
+    end
   end
 
   def over

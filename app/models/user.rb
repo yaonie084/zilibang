@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   ROLES = %w[admin user guest]
+  apply_simple_captcha
 #  validates :email, :presence => true
 #  validates :password, :presence => true
   acts_as_authentic do |c|

@@ -1,38 +1,146 @@
-<table>
-  <tbody>
-    <tr>
-      <td><%= @profile.title %></td>
-      <td><%= @profile.name %></td>
-      <td><%= @profile.male %></td>
-      <td><%= @profile.school %></td>
-      <td><%= @profile.company %></td>
-      <td><%= @profile.tel %></td>
-      <td><%= image_tag @profile.avatar(:normal) %></td>
-    </tr>
-  </tbody>
-</table>
-<div>
-<h1>信誉</h1>
+<div class="profile-view">
+  <div id ="mainbar-full">
+    <div class="subheader">
+      <h1 id="user-displayname">
+        <%= @profile.name %>
+      </h1>
+    </div>
+    <table class="vcard">
+            <tbody><tr>
+                <td style="vertical-align:top; width:170px">
+                    <table>
+                        <tbody><tr>
+                            <td id="user-avatar">
 
-<%= @profile.user.goodwill %>
+                                  <%= image_tag @profile.avatar(:normal), :class => "logo"%>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="summaryinfo">
+                                  <span class="summarycount">
+                                    <%= @user.goodwill %>
+                                  </span>
+                                <div style="margin-top:5px; font-weight:bold">Goodwill</div>
+                            </td>
+                        </tr>
+                        <!-- 有多少人看过页面
+                        <tr style="height:30px">
+                            <td class="summaryinfo" style="vertical-align:bottom">62 views</td>
+                        </tr>
+                        -->
+                    </tbody></table>
+                </td>
+                <td style="vertical-align: top; width:350px">
+                    <div style="float: right; margin-top: 19px; margin-right: 4px">
+                    </div>
+                    <h2 style="margin-top:20px;color: black">
+Role:
+<%= @user.role %>
+                    </h2>
+                    <table class="user-details">
+                        <tbody><tr>
+                            <td style="width:120px">姓名</td>
+                            <td style="width:230px" class="fn nickname"><b>
+                                <%= @profile.name %>
+                              </b></td>
+                        </tr>
+                        <tr>
+                            <td>创建时间</td>
+                            <td><span class="cool">
+                                <%= @user.created_at %>
+                              </span></td>
+                        </tr>
+                        <tr>
+                            <td>最近活动</td>
+                            <td><span class="supernova"><span title="" class="relativetime">
+                                  <%= @user.last_request_at %>
+                                </span></span></td>
+                        </tr>
+
+                        <tr>
+                            <td>email</td>
+                            <td>
+                                <div class="no-overflow">
+                                  <%= @user.email %>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td>学校</td>
+                            <td class="label adr">
+                                <%= @profile.school %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>毕业时间</td>
+                            <td>
+                              <%= @profile.graduation %> 年
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+                        <td style="width:390px">
+                            <div id="user-about-me" class="note">
+                              <%= @profile.description %>
 </div>
+                        </td>
+            </tr>
+        </tbody></table>
+  </div>
+
+  <div class="user-stats-table">
+        <table class="summary-title" id="tags-title">
+            <tbody><tr>
+                <td><div class="summarycount ar">
+                    <%= @user.skills.count %>
+                  </div></td>
+                <td class="summary-header"><h3>个技能</h3></td>
+            </tr>
+        </tbody></table>
+    </div>
+
+  <div class="user-stats-table" id="tags-table">
+        <table>
+          <tbody>
+            <tr>
+              <% @user.taggings.each do |tagging| %>
+                <td class="wide-tag-col">
+
+                    <%= link_to tagging.tag.name, "#", :class => "post-tag" %>
+                    <span class="item-multiplier">
+                      ×&nbsp;
+                      <%= tagging.score %>分
+                    </span>
+                    <br/>
+                </td>
+                <% end %>
+
+        </tr>
+          </tbody>
+        </table>
+</div>
+</div>
+<div class="repu">
 <h1 style="color: red">工人经验区</h1>
 <div style="border-bottom: 1px solid #666">
-  <h2>current bids</h2>
+  <h2>正在投标的工作</h2>
   <% @current_bids.each do |c| %>
     <%= link_to c.title, c %>
   <% end %>
 </div>
 
 <div style="border-bottom: 1px solid #666">
-  <h2>current work</h2>
+  <h2>手中的工作</h2>
   <% @current_work.each do |c| %>
     <%= link_to c.title, c %>
   <% end %>
 </div>
 
 <div style="border-bottom: 1px solid #666">
-  <h2>passed work</h2>
+  <h2>完成的工作</h2>
   <% @passed_work.each do |c| %>
     <%= link_to c.title, c %>
   <% end %>
@@ -54,16 +162,11 @@
 </div>
 
 <div style="border-bottom: 1px solid #666">
-  <h2>完成的工作</h2>
+  <h2>结束的工作</h2>
   <% @passed_job.each do |c| %>
     <%= link_to c.title, c %>
   <% end %>
 </div>
-<div style="border-bottom: 1px solid #666">
-  <h2>取得的经验</h2>
-  <% @user.taggings.each do |tagging| %>
-  <span style="margin:2px"> <%= "#{tagging.tag.name}---#{tagging.score}分" %></span>
-  <% end %>
 </div>
 <%= link_to "center" , center_root_path()%>
 <%= link_to "首页" , root_path()%>

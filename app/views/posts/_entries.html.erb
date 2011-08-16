@@ -4,36 +4,51 @@
 %>
 
 
-<table>
-	<thead>
-		<tr>
-			<th>title</th>
-			<th>description</th>
-			<th>时间</th>
-			<th>电话</th>
-                        <th>金额</th>
-                        <th>状态</th>
-                        <th>发布时间</th>
-			<th></th>
-		</tr>
-	</thead>
+  <div>
+    <h2>任务列表</h2>
+    <ul class="record-list-nav">
+	<li><%= link_to "返回首页", root_path(), :class => "left" %></li>
+	<li><%= link_to "发布任务", new_post_path(), :class => "left" %></li>
+</ul>
+    <table class="mrw_list record" cellspacing="0" cellpadding="0" border="1">
+      <tbody><tr style="" class="table-head">
+          <th width="9%" align="left">任务赏金</th>
+          <th width="34%" align="left">任务标题</th>
+          <th width="9%">投标数量</th>
+          <th width="11%">任务买家</th>
+          <th width="16%">所需技能</th>
+          <th width="9%">任务进度</th>
+          <th width="12%">剩余时间</th>
+        </tr>
+        <!--神马网-->
+        <!--神马网-->
+        <!---->
+        <% @posts.each do |post| %>
+          <tr>
+            <td><strong class="orange1">
+                <%= "￥#{post.low_price}-#{post.high_price}" %>
+              </strong></td>
+            <td>
+              <%= link_to post.title, post, :style=> "font-weight: normal;" %>
+            </td>
+            <td align="center">
+              <%= post.comments.count %>
+            </td>
+            <td align="center">
+              <%= link_to post.user.profile.name, post.user.profile %>
+            </td>
+            <td align="center">
+              <%= join_skills(post) %>
+            </td>
+            <td align="center">
+              <%= post.state %>
+            </td>
+            <td align="center"><u class="orange1">
+                <%= how_long_over?(post) %>
+              </u></td>
+          </tr>
+        <% end %>
 
-	<tbody>
-		<% @posts.each do |post| %>
-		<tr>
-			<td><%= post.title %></td>
-			<td><%= post.description %></td>
-			<td><%= post.longtime %></td>
-                        <td><%= post.tel %></td>
-                        <td><%= "#{post.low_price} - #{post.high_price}" %></td>
-                        <td><%= post.state %></td>
-			<td><%= post.created_at %></td>
-			<td>
-				<%= link_to "show", post_path(post), :title => :show, :class => "show" %>
-                                <%= link_to "edit", edit_post_path(post), :title => :edit, :class => "edit" %>&nbsp;
-				<%= link_to "delete", post_path(post), :method => :delete, :confirm => :delete, :title => :delete, :class => "delete" %>
-			</td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+
+      </tbody></table>
+  </div>

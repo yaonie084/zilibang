@@ -117,11 +117,16 @@
 
       <% if @post.paid == true and comment.user == current_user%>
         <% if comment.verified == false %>
-          <form accept-charset="UTF-8" action= "<%= verify_code_url %>"  name="verify_form" method="post">
-            <input name="code" size="30" type="text" value=""></input>
-            <input name="commit" type="submit" value="提交验证码" />
-            <input type="hidden" name="id" value="<%= comment.id %>"></input>
-          </form>
+
+          <%= semantic_form_for "", :url=> verify_code_url do |form| %>
+            <%= form.input :code, :label => "提现密码" %>
+            <%= show_simple_captcha %>
+            <%#= form.input :captcha, :as => :simple_captcha, :label => "验证码" %>
+            <%= form.input :id, :as => :hidden, :value => comment.id %>
+                    <%= form.buttons do %>
+                <%= form.commit_button :button_html => { :value => "提交"} %>
+              <% end %>
+          <% end %>
         <%  else %>
           <h1>验证成功</h1>
 
@@ -196,6 +201,9 @@
       </p>
       <p>
         <%= f.text_area :content, :cols => 60, :rows => 10, :tabindex => 4 %>
+      </p>
+      <p>
+        <%= f.simple_captcha :label => "验证码" %>
       </p>
 
       <p>

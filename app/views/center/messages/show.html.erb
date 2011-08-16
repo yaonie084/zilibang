@@ -5,7 +5,7 @@
       <tr>
         <% @sender_box.each do |message| %>
       <p>receiver:<%= message.receiver_id %></p>
-      <p>content:<%= message.content %></p>
+      <p>content:<%= message.content -%></p>
       <form action="<%= center_destroy_message_path(message) %>" method="post">
         <input class="destroy" id="messge_destroy" type="submit" value="删除"></input>
       </form>
@@ -25,7 +25,7 @@
   <% @receiver_box.each do |message| %>
     <% if message.sender_id == 1 %>
       <p>系统信息:</p>
-      <p>content:<%= message.content %></p>
+      <p>content:<%=h message.content %></p>
       <form action="<%= center_destroy_message_path(message) %>" method="post">
         <input class="destroy" id="messge_destroy" type="submit" value="删除"></input>
       </form>

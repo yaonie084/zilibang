@@ -2,11 +2,12 @@
 class NoticesController < ApplicationController
   layout :nil
   def index
-    render :text => "验证成功"
   end
 
   def error
-    render :text => "验证失败！！！"
   end
 
+  def error_404
+    render :text => "error: 404, 你懂的"
+  end
 end

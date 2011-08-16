@@ -43,13 +43,14 @@ class CommentsController < ApplicationController
   end
 
   def verify_code
+
     code = params[:code]
     comment = Comment.find(params[:id])
     if current_user == comment.user
       if comment.code == nil or comment.code != code
-        flash[:notice] = "ur code can't match!"
+        flash[:notice] = "输入错误1"
         redirect_to post_path(comment.post)
-      elsif comment.code == code
+      elsif comment.code == code and simple_captcha_valid?
         comment.verified = true
         user = comment.user
         comment.post.skill_list.each do |tag|
@@ -60,6 +61,9 @@ class CommentsController < ApplicationController
         Message.create(:sender => User.find(1), :receiver => comment.user, :content => "验证成功")
         
         flash[:notice] = "ok!"
+        redirect_to post_path(comment.post)
+      else
+        flash[:notice] = "输入错误2"
         redirect_to post_path(comment.post)
       end
     else
@@ -94,7 +98,7 @@ class CommentsController < ApplicationController
   end
 
   def report_employer
-        level = case
+    level = case
     when params[:level] == "好评"
       2
     when params[:level] == "中评"

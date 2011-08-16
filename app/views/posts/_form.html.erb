@@ -14,6 +14,7 @@
   <% elsif @flag == "edit" %>
     <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name %>
   <% end %>
+<%= form.input :captcha, :as => :simple_captcha, :label => "验证码" %>
 <% end %>
 
 <%= form.buttons do %>

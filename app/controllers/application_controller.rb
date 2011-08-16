@@ -2,11 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   respond_to :html, :xml, :json
   helper_method :current_user_session, :current_user
-
+  include SimpleCaptcha::ControllerHelpers
   rescue_from CanCan::AccessDenied do |exception|
-    puts "\n\nERROR:your are not enough of power xx----------\n\n"
-    redirect_to root_url, :alert => exception.message
+    redirect_to error_404_url
   end
+
+  
 
   def self.authorize_namespace(options = {})
     before_filter(:authorize_namespace, options.slice(:only, :except))

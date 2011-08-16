@@ -26,3 +26,7 @@ zh-CN:
         odd: "必须为单数"
         even: "必须为双数"
         last_word_connectorshould look like an email address: 请输入合法的邮箱地址
+  simple_captcha:
+    message:
+      default: "不能匹配"
+      user: "验证码输入错误，请刷新页面重新注册"

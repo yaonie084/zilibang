@@ -6,7 +6,7 @@ gem 'rails', '3.0.9'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'cancan', "~> 1.6.4"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'

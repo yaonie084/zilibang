@@ -32,59 +32,7 @@
 
         <div class="c"></div>
       </div>
-      <div id="ziqiangbang-banner">
-        <div class="ziqiangbang-space left" style="width:200px; min-height:77px;"></div>
-        <div class="total-preview left" align="left">
-          <div style="padding:13px;" class="left">
-            <b style="font-weight:bold;font-size:16px;color: #666">累计所有:</b>
-            |
-            <b style="color:#666"> ngo:1000000元</b>
-            |
-            <b style="color:#666"> 任务总数:10000个</b>
-            |
-            <b style="color:#666"> 人才数:1000000个</b>
-
-          </div>
-          <div class="ziqiangbang-logo2 right">
-
-          </div>
-
-        </div>
-        <div class="ziqiangbang-space" style="width:800px; min-height:34px;"></div>
-        <div class="c"></div>
-        <div class="ziqiangbang-space left"></div>
-        <div id="intro">
-
-          <div style="text-shadow: 1px 1px 1px #666;font-size: 36px;font-weight: bold;font-family:黑体;" align="left">
-			自强帮的初衷
-          </div>
-
-          <div style="padding:6px;font-size: 15px;font-weight: bold;font-family:黑体;" align="left">
-            <p>自强帮由一个简单的想法，一个积极向上的生活，一个努力帮助他人的心态，</p>
-            <p>一个只属于完善人格的每一位伙伴所存在的一个平台。</p>
-          </div>
-
-          <div align="left" style="padding:6px; font-size: 10px; width:400px" class="left">
-            <ul class="welcome-list">
-              <li>一个简单的想法，大学生是不是应该独立了？</li>
-              <li>是不是应该不向家里伸手要生活费了？</li>
-              <li>是不是应该抛弃恶习不断完善自己？</li>
-              <li>那么我想告诉大家，自强帮就是“自立自强，帮助他人”</li>
-              <li>一些需要帮助的人可能此时整需要我们的一臂之力。</li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div id="enter" class="left">
-          <div class="post-button">
-            <%= link_to "发布任务", new_post_url %>
-          </div>
-          <div class="view-list-button">
-            <%= link_to "任务列表", posts_url %>
-          </div>
-        </div>
-      </div>
+      <%= yield :banner %>
 
     </div>
 
@@ -92,7 +40,6 @@
       <%= yield %>
     </div>
     <div class="ziqiangbang-space" style="width:1500px;height: 20px;"></div>
-    <div style="background:url(/images/bb.png) bottom left repeat-x;">
       <div id="footer">
         <div class="ziqiangbang-space" style="height: 40px;width: 1500px;"></div>
         <div class="who-am-i" align="left">
@@ -120,6 +67,6 @@
           </div>
         </div>
       </div>
-    </div>
+
   </body>
 </html>

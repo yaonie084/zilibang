@@ -1,7 +1,7 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 $(document).ready(function() {
-    $("tr:nth-child(odd)").addClass('alt');
+    $(".record tr:nth-child(odd)").addClass('alt');
     item_details = $(".step-item-detail .item");
     item_details.hide();
  $(".steps .step-model").click(function(event){

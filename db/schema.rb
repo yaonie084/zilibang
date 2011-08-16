@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110729134602) do
+ActiveRecord::Schema.define(:version => 20110816170724) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -75,13 +75,24 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
     t.string  "name"
     t.boolean "male"
     t.string  "school"
-    t.string  "company"
+    t.integer "graduation"
     t.string  "tel"
+    t.string  "plan"
+    t.text    "description"
     t.string  "avatar_file_name"
     t.string  "avatar_content_type"
     t.integer "avatar_file_size"
     t.integer "user_id"
   end
+
+  create_table "simple_captcha_data", :force => true do |t|
+    t.string   "key",        :limit => 40
+    t.string   "value",      :limit => 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], :name => "idx_key"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

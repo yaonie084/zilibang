@@ -1,9 +1,8 @@
 Zilibang::Application.routes.draw do
 
   get "notices/index", :as => "accept_account"
-
   get "notices/error", :as => "refuse_account"
-
+  get "notices/error_404", :as=> "error_404"
   get "home/index"
 
   root :to => "home#index"

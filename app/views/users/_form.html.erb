@@ -2,6 +2,7 @@
   <%= form.input :email, :input_html => { :class => "text-input medium-input" } %>
   <%= form.input :password, :input_html => { :class => "text-input medium-input" } %>
   <%= form.input :password_confirmation, :input_html => { :class => "text-input medium-input" } %>
+
   <%#= form.collection_select :role, User::ROLES, :to_s, :humanize %>
 <% end %>
 
@@ -10,9 +11,15 @@
   <%= profile_form.input :name, :input_html => { :class => "text-input medium-input" }  %>
   <%= profile_form.input :tel, :input_html => { :class => "text-input medium-input" }  %>
   <%= profile_form.input :school, :input_html => { :class => "text-input medium-input" }  %>
+  <%= profile_form.input :graduation, :as => :select, :collection => 2002..2022  %>
+  <%= profile_form.input :plan, :as => :radio, :collection => ["出国深造", "考研", "工作"] %>
+  <%= profile_form.input :description, :input_html => { :class => "text-input medium-input" }  %>
   <%= profile_form.input :avatar, :as => :file, :hint => "传头像" %>
 
 <% end %>
+  <%#= form.input :humanizer_answer,:as=>:label, @user.humanizer_question %>
+<%#= show_simple_captcha(:object=>"user") %>
+<%= form.input :captcha, :as => :simple_captcha, :label => "验证码" %>
 
 <%= form.buttons do %>
   <%= form.commit_button :button_html => { :class => "button" } %>

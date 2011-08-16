@@ -23,13 +23,4 @@ end
 
 Profile.create(:user => @user, :name => "lx")
 
-#=======
-@user = User.find_or_create_by_email("1554882772@qq.com") do |u|
-  u.password = u.password_confirmation = "123456"
-  u.gender = "male"
-  u.superadmin = true
-  u.role = "admin"
-end
 
-Profile.create(:user => @user, :name => "wangyu")
-#>>>>>>> e47acbd13275580b2abd0066255a10cc04964fe2
