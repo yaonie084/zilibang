@@ -1,6 +1,6 @@
 # coding: utf-8
 class UserSessionsController < ApplicationController
-  layout "authlogic", :only => :new
+  layout "authlogic"
   def new
     @user_session = UserSession.new
   end

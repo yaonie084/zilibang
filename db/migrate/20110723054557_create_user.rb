@@ -7,6 +7,7 @@ class CreateUser < ActiveRecord::Migration
       t.string    :persistence_token,   :null => false                # required
       t.string    :perishable_token,  :default => "", :null => false
       t.integer   :gold, :default => 0
+      t.integer   :goodwill, :default => 0
       t.string    :role
 
       t.boolean   :superadmin, :default => false

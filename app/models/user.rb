@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
       self.save
     end
     tagging = Tagging.where("taggable_id = #{self.id} AND tag_id = #{tag_id} AND taggable_type = \"User\"").first
-    tagging.score += level.to_i*5
+    tagging.score += level.to_i*10
     tagging.save
   end
 

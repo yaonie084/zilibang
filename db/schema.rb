@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
     t.string   "persistence_token",                     :null => false
     t.string   "perishable_token",   :default => "",    :null => false
     t.integer  "gold",               :default => 0
+    t.integer  "goodwill",           :default => 0
     t.string   "role"
     t.boolean  "superadmin",         :default => false
     t.integer  "login_count",        :default => 0,     :null => false
@@ -135,5 +136,7 @@ ActiveRecord::Schema.define(:version => 20110729134602) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
+  add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
 
 end

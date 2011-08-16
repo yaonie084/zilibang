@@ -8,9 +8,14 @@
 
 </head>
 <body>
+
      <div class="login">
-                  <%#*<div id=input1><form action="" method="get"><input name="http" type="text" size="20" /></form></div>%>
-                      <%#*<div id=input2><form action="" method="get"><input name="http" type="text" size="20" /></form></div>%>
+             <% if flash[:notice] -%>
+      <div id="notice" style="color: #f00; border: 1px solid #666; margin: 5px;">
+          <%= flash[:notice] %>
+      </div>
+    <% end -%>
+
                       <%= yield %>
 
                               

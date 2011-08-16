@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
       comment.buyer_sure = false
       comment.employer_sure = false
       comment.save
-            Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业取消任务")
+      Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业取消任务")
       redirect_to post_path(comment.post)
     end
   end
@@ -51,6 +51,11 @@ class CommentsController < ApplicationController
         redirect_to post_path(comment.post)
       elsif comment.code == code
         comment.verified = true
+        user = comment.user
+        comment.post.skill_list.each do |tag|
+          puts "#{tag}--\n"
+          user.add_score!(1, tag)
+        end
         comment.save
         Message.create(:sender => User.find(1), :receiver => comment.user, :content => "验证成功")
         
@@ -64,32 +69,50 @@ class CommentsController < ApplicationController
   end
 
   def report_buyer
-    level = params[:level]
+    level = case
+    when params[:level] == "好评"
+      2
+    when params[:level] == "中评"
+      1
+    when params[:level] == "差评"
+      -1
+    end
     comment = Comment.find(params[:id])
     comment.buyer_content = params[:content]
-    comment.buyer_level = params[:level]
+    comment.buyer_level = level
     comment.save
     Message.create(:sender => User.find(1),:receiver => comment.post.user,:content =>"用户已评价")
-    user = comment.post.user
-    comment.post.skill_list.each do |tag|
-      puts "#{tag}--\n"
-      user.add_score!(level, tag)
-    end
+    user = comment.user
+    #    comment.post.skill_list.each do |tag|
+    #      puts "#{tag}--\n"
+    #      user.add_score!(level, tag)
+    #    end
+    user.goodwill += level
+    user.save
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
   end
 
   def report_employer
-    level = params[:level]
+        level = case
+    when params[:level] == "好评"
+      2
+    when params[:level] == "中评"
+      1
+    when params[:level] == "差评"
+      -1
+    end
     comment = Comment.find(params[:id])
     comment.employer_content = params[:content]
     comment.employer_level = level
     comment.save
     Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业已评价")
-    user = comment.user
-    comment.post.skill_list.each do |tag|
-      user.add_score!(level, tag)
-    end
+    user = comment.post.user
+    #    comment.post.skill_list.each do |tag|
+    #      user.add_score!(level, tag)
+    #    end
+    user.goodwill += level
+    user.save
     flash[:notice] = "report success"
     redirect_to post_path(comment.post)
   end

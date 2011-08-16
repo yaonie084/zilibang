@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="content-box-content">
-		<%= semantic_form_for(@post, :url => post_path(@post)) do |f| %>
+		<%= semantic_form_for(@post, :url => post_path(@post), :html => { :multipart => true }) do |f| %>
 			<%= render :partial => 'form', :object => f %>
 		<% end %>
 	</div>

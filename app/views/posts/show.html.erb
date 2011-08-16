@@ -26,7 +26,7 @@
       <td><%= @post.tel %></td>
       <td><%= "#{@post.low_price} - #{@post.high_price}" %></td>
       <td>
-          <%= @post.state %>
+        <%= @post.state %>
       </td>
       <td><%= @post.created_at %></td>
 
@@ -128,44 +128,51 @@
         <% end %>
       <% end %>
 
-      <!-- 评价工人的地方-->
+      <!-- 企业评价工人的地方-->
       <% if @post.user == current_user and @post.finish == true %>
         <div>
-          <% if comment.employer_level == 0 %>
-            评价工人
-            <form accept-charset="UTF-8" action= "<%= report_employer_url %>"  name="report_form" method="post">
-              <input name="content" size="30" type="text" value=""></input>
-              <input name="level" type="text" value=""></input>
-              <input name="commit" type="submit" value="提交评价" />
-              <input type="hidden" name="id" value="<%= comment.id %>"></input>
-            </form>
+          <% if comment.buyer_level == 0 %>
+            请您来评价评价工人
+
+            <%= semantic_form_for "", :url=> report_buyer_url do |form| %>
+              <%= form.input :content %>
+              <%= form.input :level,   :as => :radio,       :collection => ["好评", "中评", "差评"] %>
+              <%= form.input :id, :as => :hidden, :value => comment.id %>
+              <%= form.buttons do %>
+                <%= form.commit_button :button_html => { :value => "评价"} %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
-      <!-- 评价企业的地方-->
+      <!-- 工人评价企业的地方-->
       <% if comment.user == current_user and @post.finish == true%>
         <div>
-          <% if comment.buyer_level == 0 %>
-            评价企业
-            <form accept-charset="UTF-8" action= "<%= report_buyer_url %>"  name="report_form" method="post">
-              <input name="content" size="30" type="text" value=""></input>
-              <input name="level" type="text" value=""></input>
-              <input name="commit" type="submit" value="提交评价" />
-              <input type="hidden" name="id" value="<%= comment.id %>"></input>
-            </form>
+          <% if comment.employer_level == 0 %>
+            请您来评价企业
+            <%= semantic_form_for "", :url=> report_employer_url do |form| %>
+              <%= form.input :content %>
+              <%= form.input :level,   :as => :radio,       :collection => ["好评", "中评", "差评"] %>
+              <%= form.input :id, :as => :hidden, :value => comment.id %>
+              <%= form.buttons do %>
+                <%= form.commit_button :button_html => { :value => "评价"} %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
 
       <div>
         <% if comment.buyer_level != 0  %>
-          企业评价:
-          <%= "#{comment.buyer_content}-#{comment.buyer_level}" %><br />
+          企业对工人的评价:
+          <%= "#{comment.buyer_content}-" %>
+          <%=comfortable?(comment.buyer_level)  %><br />
         <% end %>
 
         <% if comment.employer_level != 0 %>
-          工人评价:
-          <%= "#{comment.employer_content}-#{comment.employer_level}" %>
+          工人对企业的评价:
+          <%= "#{comment.employer_content}" %>
+          <%=comfortable?(comment.employer_level)  %>
         <% end %>
       </div>
     </li>

@@ -33,15 +33,15 @@ class UsersController < ApplicationController
 
   def register_check_instructions
     @user = User.find_using_perishable_token(params[:id])
-    puts "--------------------\n"
-    puts @user
     
     if @user != nil
       @user.role = "user"
       @user.save
-      flash[:notice] = "accept your account"
+      #flash[:notice] = "accept your account"
+      redirect_to accept_account_url
+    else
+      redirect_to refuse_account_url
     end
-    redirect_to root_url
   end
 
   def forgot_password

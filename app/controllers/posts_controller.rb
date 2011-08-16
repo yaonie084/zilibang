@@ -11,6 +11,7 @@ class PostsController < ApplicationController
     @have_comment = nil
     @comments = @post.comments
     @comment = @post.comments.new
+    
     #flash[:notice] = "xx"
   end
 
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @flag = "edit"
   end
 
   def update
@@ -63,6 +65,7 @@ class PostsController < ApplicationController
   def new
     redirect_to root_path if current_user == nil
     @post = current_user.posts.new
+    @flag = "new"
   end
 
   def add_comment
