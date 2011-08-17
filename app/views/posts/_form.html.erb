@@ -3,16 +3,16 @@
 # and open the template in the editor.
 %>
 <%= form.inputs do %>
-  <%= form.input :title, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :description, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :longtime, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :tel, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :low_price, :input_html => { :class => "text-input medium-input" } %>
-  <%= form.input :high_price, :input_html => { :class => "text-input medium-input" } %>
+  <%= form.input :title, :input_html => { :class => "text-input medium-input" }, :label=> "任务标题" %>
+  <%= form.input :description, :input_html => { :class => "text-input medium-input" }, :label => "任务描述" %>
+  <%= form.input :longtime, :input_html => { :class => "text-input medium-input" }, :label => "任务有效天数" %>
+  <%= form.input :tel, :input_html => { :class => "text-input medium-input" }, :label=>"任务联系电话" %>
+  <%= form.input :low_price, :input_html => { :class => "text-input medium-input" }, :label => "可接受的最低价" %>
+  <%= form.input :high_price, :input_html => { :class => "text-input medium-input" }, :label => "可接受的最高价" %>
   <% if @flag == "new" %>
-    <%= form.input :skill_list, :as => :check_boxes, :collection => Tag.all, :value_method => :name %>
+    <%= form.input :skill_list, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" } %>
   <% elsif @flag == "edit" %>
-    <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name %>
+    <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" } %>
   <% end %>
 <%= form.input :captcha, :as => :simple_captcha, :label => "验证码" %>
 <% end %>

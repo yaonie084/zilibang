@@ -29,8 +29,7 @@ class PostsController < ApplicationController
       #respond_with(@user, :location => root_path())
       redirect_to posts_path()
     else
-      flash[:notice] = "输入信息有错误"
-      redirect_to new_post_url
+      render :action => :new
     end
   end
 

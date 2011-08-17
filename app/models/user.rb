@@ -1,3 +1,4 @@
+# coding: utf-8
 class User < ActiveRecord::Base
   ROLES = %w[admin user guest]
   apply_simple_captcha

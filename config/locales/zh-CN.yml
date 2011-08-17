@@ -1,4 +1,26 @@
 zh-CN:
+  authlogic:
+    error_messages:
+      login_blank: 不能为空
+      login_not_found: 不合法
+      login_invalid: 请输入真实的邮箱
+      consecutive_failed_logins_limit_exceeded: Consecutive failed logins limit exceeded, account is disabled.
+      email_invalid: 必须是真实的email,我们会通过您提供的email来激活您的帐号
+      password_blank: 不能为空
+      password_invalid: 非法密码
+      not_active: 这个帐号没有被激活
+      not_confirmed: 这个帐号没有被验证
+      not_approved: Your account is not approved
+      no_authentication_details: You did not provide any details for authentication.
+    models:
+      user_session: UserSession (or whatever name you are using)
+    attributes:
+        user_session: (or whatever name you are using)
+        login: 登录
+        email: 邮箱
+        password: 密码
+        remember_me: 记住
+        
   support:
     array:
       words_connector: "内容,"
@@ -13,20 +35,21 @@ zh-CN:
         accepted: "必须是可被接受的"
         empty: "不能留空"
         blank: "不能为空字符"
-        too_long: "过长（最长为 {{count}} 个字符）"
-        too_short: "过短（最短为 4 个字符）"
-        wrong_length: "长度非法（必须为 {{count}} 个字符）"
+        too_long: "过长（最长为 %{count} 个字符）"
+        too_short: "过短(最短为 %{count} 个字符)"
+        wrong_length: "长度非法（必须为 %{count} 个字符）"
         taken: "已经被使用"
         not_a_number: "不是数字"
-        greater_than: "必须大于 {{count}}"
-        greater_than_or_equal_to: "必须大于或等于 {{count}}"
+        greater_than: "必须大于 %{count}"
+        greater_than_or_equal_to: "必须大于或等于 %{count}"
         equal_to: "必须等于 4"
         less_than: "必须小于 4"
-        less_than_or_equal_to: "必须小于或等于 4"
+        less_than_or_equal_to: "必须小于或等于 %{count}"
         odd: "必须为单数"
         even: "必须为双数"
         last_word_connectorshould look like an email address: 请输入合法的邮箱地址
+        not_an_integer: 请填写1到100以内的整数
   simple_captcha:
     message:
       default: "不能匹配"
-      user: "验证码输入错误，请刷新页面重新注册"
+      user: "验证码输入错误"
