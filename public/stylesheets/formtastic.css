@@ -17,7 +17,7 @@ form.formtastic fieldset { border: 0px;}
 form.formtastic em, form.formtastic strong { font-style:normal; font-weight:normal; }
 form.formtastic ol, form.formtastic ul { list-style:none; }
 form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
-form.formtastic input, form.formtastic select  {font-size:30px; font-weight:bold;height: 30px;}
+form.formtastic input, form.formtastic select  {cursor: pointer;font-size:30px; font-weight:bold;height: 30px;}
 form.formtastic textarea{ font-family:inherit; font-size:inherit; font-weight:inherit; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }
 form.formtastic legend { white-space:normal; color:#000; }
@@ -49,7 +49,7 @@ form.formtastic fieldset > ol > li.error { }
 
 /* LABELS
 --------------------------------------------------------------------------------------------------*/
-form.formtastic fieldset > ol > li label { display:block; width:25%; float:left; padding-top:.2em; text-shadow: 0 1px 1px #D7D7D7;}
+form.formtastic fieldset > ol > li label { width:25%; float:left; padding-top:.2em; text-shadow: 0 1px 1px #D7D7D7;}
 form.formtastic fieldset > ol > li > li label { line-height:100%; padding-top:0; }
 form.formtastic fieldset > ol > li > li label input { line-height:100%; vertical-align:middle; margin-top:-0.1em;}
 

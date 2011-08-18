@@ -10,9 +10,9 @@
   <%= form.input :low_price, :input_html => { :class => "text-input medium-input" }, :label => "可接受的最低价" %>
   <%= form.input :high_price, :input_html => { :class => "text-input medium-input" }, :label => "可接受的最高价" %>
   <% if @flag == "new" %>
-    <%= form.input :skill_list, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" } %>
+    <%= form.input :skill_list, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" }, :value_method => Proc.new { |a| a.id } %>
   <% elsif @flag == "edit" %>
-    <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" } %>
+    <%= form.input :skills, :as => :check_boxes, :collection => Tag.all, :value_method => :name, :label => "任务所需的技能", :label_html => { :class => "skills" }, :value_method => Proc.new { |a| a.id } %>
   <% end %>
 <%= form.input :captcha, :as => :simple_captcha, :label => "验证码" %>
 <% end %>

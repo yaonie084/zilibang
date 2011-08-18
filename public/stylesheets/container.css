@@ -1,5 +1,6 @@
 ol, ul {
     list-style: none;
+    clear: both;
 }
 #container {
     margin-left: auto;
@@ -495,14 +496,17 @@ form select {
 }
 form input[type="checkbox"] {
     padding: 0;
-    background: none;
     border: 0;
+    cursor: pointer;
+    background: none repeat scroll 0 0 #DDDDDD;
+    color: #0000FF;
 }
 form input[type="radio"] {
     padding: 0;
     background: none;
     border: 0;
     font-family:inherit; font-size:inherit; font-weight:inherit;
+
 }
 
 .simple_captcha {
@@ -513,4 +517,8 @@ form input[type="radio"] {
 
 #post-skill-list-input label{
     font-size: 14px;
+}
+
+.plan {
+/*    display: none;*/
 }
