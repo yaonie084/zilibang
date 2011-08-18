@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
       comment.buyer_sure = true
       comment.save
       Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业确定，请确认:#{comment.post.title}#{post_path(comment)}")
+      
       redirect_to post_path(comment.post)
     end
   end

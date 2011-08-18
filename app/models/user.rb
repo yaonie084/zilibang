@@ -44,6 +44,21 @@ class User < ActiveRecord::Base
     UserMailer.forgot_email(self).deliver
   end
 
+  def deliver_pay(user,post)
+    UserMailer.pay(user,post).deliver
+  end
+  def deliver_pay_code(user,post)
+    UserMailer.pay_code(user,post).deliver
+  end
+  def deliver_finish(user,post)
+    UserMailer.finish(user,post).deliver
+  end
+  def deliver_over_no(user,post)
+    UserMailer.over_no(user,post).deliver
+  end
+  def deliver_over_yes(user,post)
+    UserMailer.over_yes(user,post).deliver
+  end
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
   end

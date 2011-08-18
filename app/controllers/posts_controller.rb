@@ -94,10 +94,13 @@ class PostsController < ApplicationController
       @post.comments.each do |comment|
         if comment.buyer_sure == true and comment.employer_sure
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标成功")
+          current_user.delay.over_yes(comment.user,@post)
         else
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标失败")
+          current_user.delay.over_no(comment.user,@post)
         end
       end
+
       redirect_to post_path(@post)
     end
   end
@@ -111,6 +114,7 @@ class PostsController < ApplicationController
       @post.comments.each do |comment|
         if comment.buyer_sure == true and comment.employer_sure
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"工作完成")
+          current_user.delay.finish(comment.user,@post)
         end
       end
     end

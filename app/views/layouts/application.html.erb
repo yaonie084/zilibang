@@ -38,14 +38,13 @@
           <% if current_user!= nil and current_user.profile!=nil %>
             <div class="login left"> <%= link_to "hi,#{current_user.profile.name}", profile_path(current_user.profile), :class => "login" %> </div>
             <div class="signup left"><%=link_to "退 出",  logout_url, :class => "signup" %></div>
+  
           <% else %>
             <div class="login left"> <%=link_to "登 录",  login_url, :class => "login" %> </div>
             <div class="signup left"><%=link_to "注 册",  new_user_url, :class => "signup" %></div>
           <% end %>
         </div>
-
-
-
+        
         <div class="c"></div>
       </div>
       <%= yield :banner %>

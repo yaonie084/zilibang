@@ -1,0 +1,12 @@
+您好，<%=@user.email%>:
+  您在自强帮（http://localhost:3000）中发布的"<%= @post.title %>"任务已经付清款数。
+  下面是接受您任务的用户的提款代码。请在完成您的工作后，将代码发给对应用户名的用户。
+  用户邮箱与代码表如下：
+    <%  @post.comments.each do |comment| %>
+      <%  if comment.code != nil %>
+       <%=  "#{comment.user.email}: #{comment.code}\n" %>
+      <%  end %>
+  <% end %>
+  请等待企业联系，或主动与企业联系。
+  完成任务后，请记住向企业索要提款代码。
+  任务地址：<%= @url %>
