@@ -17,7 +17,7 @@ form.formtastic fieldset { border: 0px;}
 form.formtastic em, form.formtastic strong { font-style:normal; font-weight:normal; }
 form.formtastic ol, form.formtastic ul { list-style:none; }
 form.formtastic abbr, form.formtastic acronym { border:0; font-variant:normal; }
-form.formtastic input, form.formtastic select  {font-size:34px; font-weight:bold;height: 34px;}
+form.formtastic input, form.formtastic select  {font-size:30px; font-weight:bold;height: 30px;}
 form.formtastic textarea{ font-family:inherit; font-size:inherit; font-weight:inherit; }
 form.formtastic input, form.formtastic textarea, form.formtastic select { font-size:100%; }
 form.formtastic legend { white-space:normal; color:#000; }
