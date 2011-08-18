@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="content-box-content">
-		<%= semantic_form_for(@profile, :url => center_update_profile_path) do |f| %>
+		<%= semantic_form_for(@profile, :url => center_update_profile_path, :html => { :multipart => true } ) do |f| %>
 			<%= render :partial => 'form', :object => f %>
 		<% end %>
 	</div>

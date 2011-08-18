@@ -452,7 +452,7 @@ form p small {
 }
 form input.text-input {
     padding: 6px;
-    font-size: 34px;
+    font-size: 30px;
     background: #ffffff url('../../images/admin/bg-form-field.gif') top left repeat-x;
     border: 1px solid #d5d5d5;
     text-shadow: 0 1px 1px #D7D7D7;

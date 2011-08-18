@@ -10,8 +10,8 @@ class Center::ProfilesController < Center::BaseController
 
   def update
     @profile.update_attributes(params[:profile])
-    flash[:notice] = "update_successful"
-    respond_with(@profile, :location => center_profile_url)
+    flash[:notice] = "资料更新成功"
+    redirect_to center_root_path
   end
 
   def find_profile
@@ -29,6 +29,7 @@ class Center::ProfilesController < Center::BaseController
       
       if @user.update_attributes(params[:user])
         UserSession.create(:email => @user.email, :password => params[:user][:password])
+        flash[:notice] = "密码修改成功"
         redirect_to center_root_path
       else
         flash[:notice] = "两次输的密码不一样"
