@@ -31,6 +31,8 @@ Zilibang::Application.routes.draw do
   
   resources :users, :only => [:new, :create]
   resources :profiles, :only => [:show]
+  get 'worker_show/:id' => "profiles#worker_show", :as => :worker_show
+  get 'bussiness_show/:id' => "profiles#bussiness_show", :as => :bussiness_show
   resources :posts do
     post 'add_comment'
   end
