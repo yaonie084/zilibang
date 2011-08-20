@@ -62,7 +62,89 @@ class UserMailer < ActionMailer::Base
   def buyer_sure(user,post)
     @user = user
     @post = post
-    @url = "http://lovalhost:3000"
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def wait_buyer_sure(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+
+  end
+  def wait_employer_sure(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def buyer_cancel(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def employer_sure(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def employer_cancel(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def employer_over(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def verify_code(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def report_buyer(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
+    @url += post_path(@post.id)
+    mail( :to => user.email,
+          :subject => "自强帮"
+    )
+  end
+  def report_employer(user,post)
+    @user = user
+    @post = post
+    @url = "http://localhost:3000"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮"

@@ -78,6 +78,7 @@ class PostsController < ApplicationController
     if @comment.valid_with_captcha?
       @comment.save
       flash[:notice] = "add comment success"
+      current_user.deliver_wait_employer_sure(@comment.post.user,@comment.post)
       redirect_to post_path(@comment.post_id)
     else
       flash[:notice] = "输入错误"
@@ -94,13 +95,13 @@ class PostsController < ApplicationController
       @post.comments.each do |comment|
         if comment.buyer_sure == true and comment.employer_sure
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标成功")
-          current_user.delay.over_yes(comment.user,@post)
+          current_user.deliver_over_yes(comment.user,@post)
         else
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"任务结束，竞标失败")
-          current_user.delay.over_no(comment.user,@post)
+          current_user.deliver_over_no(comment.user,@post)
         end
       end
-
+      current_user.deliver_employer_over(@post.user,@post)
       redirect_to post_path(@post)
     end
   end
@@ -114,7 +115,7 @@ class PostsController < ApplicationController
       @post.comments.each do |comment|
         if comment.buyer_sure == true and comment.employer_sure
           Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"工作完成")
-          current_user.delay.finish(comment.user,@post)
+          current_user.deliver_finish(comment.user,@post)
         end
       end
     end

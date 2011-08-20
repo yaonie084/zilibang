@@ -59,6 +59,36 @@ class User < ActiveRecord::Base
   def deliver_over_yes(user,post)
     UserMailer.over_yes(user,post).deliver
   end
+  def deliver_wait_buyer_sure(user,post)
+    UserMailer.wait_buyer_sure(user,post).deliver
+  end
+  def deliver_wait_employer_sure(user,post)
+    UserMailer.wait_employer_sure(user,post).deliver
+  end
+  def deliver_buyer_sure(user,post)
+    UserMailer.buyer_sure(user,post).deliver
+  end
+  def deliver_buyer_cancel(user,post)
+    UserMailer.buyer_cancel(user,post).deliver
+  end
+  def deliver_employer_sure(user,post)
+    UserMailer.employer_sure(user,post).deliver
+  end
+  def deliver_employer_cancel(user,post)
+    UserMailer.employer_cancel(user,post).deliver
+  end
+  def deliver_employer_over(user,post)
+    UserMailer.employer_over(user,post).deliver
+  end
+  def deliver_verify_code(user,post)
+    UserMailer.verify_code(user,post).deliver
+  end
+  def deliver_report_buyer(user,post)
+    UserMailer.report_buyer(user,post).deliver
+  end
+  def deliver_report_employer(user,post)
+    UserMailer.report_employer(user,post).deliver
+  end
   def role?(base_role)
     ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
