@@ -22,4 +22,17 @@ module ApplicationHelper
     content = capture(&block)
     content_tag(:li, content, options)
   end
+
+  def profile_nav(name, options = {}, &block)
+    if @profile_nav == name
+      if options[:class]
+        options[:class] += " selected"
+      else
+        options[:class] = "selected"
+      end
+    end
+    content = capture(&block)
+
+    content_tag(:li, content, options)
+  end
 end

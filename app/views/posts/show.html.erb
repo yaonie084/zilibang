@@ -33,6 +33,55 @@
     </tr>
   </tbody>
 </table>
+<div id="internalContent">
+  <img src="/images/internal_content_top.gif" alt="" width="902" height="12"></img>
+  <div id="projectDetailsOverview">
+                        	<div class="column1">
+                            	<p><strong>任务标题: </strong><span class="project_status_A" align="left">
+<%= @post.title %>
+</span>
+</p>
+ <img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="20" height="8" class="homeHeaderSizer"></img>
+                                <p>
+                                	<strong>离结束还有</strong>
+<%= how_long_over?(@post) %>
+                                </p>
+                                <img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="20" height="8" class="homeHeaderSizer"></img>
+                                <p><strong>可接受报价: </strong><%= "￥:#{@post.low_price} - #{@post.high_price}" %></p>
+                                <img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="20" height="8" class="homeHeaderSizer"></img>
+                                <p><strong>创建时间 </strong><%=  @post.created_at %></p>
+                            </div>
+                            <div class="column2">
+                            	<p><strong>竞标人数: </strong>  <span class="bidCount"><%= @post.comments.count %></span></p>
+			<img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="20" height="9" class="homeHeaderSizer"/>
+
+                                <p><strong>平均报价: </strong><br/>  N/A </p>
+                                <p><strong>联系电话: </strong><br/> <%= @post.tel %>  </p>
+                            </div>
+                            <div class="column3">
+<p><strong>创建者:</strong>
+ <%= link_to @post.user.profile.name, @post.user.profile %>
+<img src="//cdn4.freelancer.com/img/offline_man.png" width="18" height="22" title="Offline"/>
+
+
+
+
+                        <br/>
+
+
+<img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="355" height="8" class="homeHeaderSizer"/>
+
+</p>
+                            </div>
+                            <div class="column4">
+
+                <a href="../../../sellers/placebid.php?id=1171298" rel="nofollow"><img alt="Bid On This Project" src="//cdn2.freelancer.com/img/buttons/btn_bid_on_project.gif" width="167" height="36" border="0"/></a>
+
+</div>
+
+                        </div>
+  <div class="c">&nbsp;</div>
+</div>
 <div>
   <% if @post.user == current_user %>
     <% if @post.over == true %>

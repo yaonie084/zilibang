@@ -1,0 +1,40 @@
+<%= render "show" %>
+
+<ul class="tabs">
+  <%= profile_nav "worker" do %><%= link_to "工人经验区", worker_show_path(@profile) %><% end %>
+  <%= profile_nav "bussiness" do %><%= link_to "企业经验区", bussiness_show_path(@profile) %><% end %>
+</ul>
+<div class="repu">
+    <div class ="leftColumn">
+    <h2>招标中的工作</h2>
+  </div>
+  <div class ="rightColumn">
+  <% @bidding_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+  </div>
+  <div class="c"></div>
+<div class ="leftColumn">
+  <h2>进行中的工作</h2>
+</div>
+  <div class ="rightColumn">
+  <% @bidding_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+  <div class="c"></div>
+
+<div class ="leftColumn">
+  <h2>结束的工作</h2>
+</div>
+  <div class ="rightColumn">
+  <% @passed_job.each do |c| %>
+    <%= link_to c.title, c %>
+  <% end %>
+</div>
+  <div class="c"></div>
+
+</div>
+<%= link_to "center" , center_root_path()%>
+<%= link_to "首页" , root_path()%>
+

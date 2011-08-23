@@ -36,7 +36,7 @@
         <div class="ziqiangbang-space left" style="width: 450px"></div>
         <div class="user-used left">
           <% if current_user!= nil and current_user.profile!=nil %>
-            <div class="login left"> <%= link_to "hi,#{current_user.profile.name}", profile_path(current_user.profile), :class => "login" %> </div>
+            <div class="login left"> <%= link_to "hi,#{current_user.profile.name}",center_root_path, :class => "login" %> </div>
             <div class="signup left"><%=link_to "退 出",  logout_url, :class => "signup" %></div>
   
           <% else %>

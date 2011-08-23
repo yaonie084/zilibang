@@ -1,11 +1,12 @@
-<p>
-<%= link_to "我的资料", center_profile_path %>
-</p>
+<h2>用户中心</h2>
+<p>您好<%= @profile.name %>， 您可以通过用户中心管理您的帐号</p>
+<ul class="shortcut-buttons-set">
 
-<p>
-  <%= link_to "站内信", center_messages_path %>
-</p>
+        <li><%= link_to "首页", root_path, :class => "shortcut-button home" %></li>
+        <li><%= link_to "修改资料", center_edit_profile_path, :class => "shortcut-button config" %></li>
+	<li><%= link_to "查看资料", worker_show_path(@profile), :class => "shortcut-button account" %></li>
+	<li><%= link_to "站内通知", center_messages_path, :class => "shortcut-button feedback" %></li>
+	<li><%= link_to "修改密码", center_change_password_path, :class => "shortcut-button page" %></li>
 
-<p>
-  <%= link_to "更改密码", center_change_password_path %>
-</p>
+</ul>
+<div class="clear"></div>

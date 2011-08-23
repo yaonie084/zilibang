@@ -17,11 +17,16 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
+    
     buffers = []
-    @post.skills.each do |skill|
-      buffer_skill << Tag.find(skill).name
+    @post.skill_list.each do |skill|
+      buffers << Tag.find(skill).name
     end
-    @post.skills = buffers
+
+    puts "--------------------------------------------------\n"
+    puts buffers
+
+    @post.skill_list = buffers
     @post.state = "火热竞标中"
     if @post.valid_with_captcha?
       @post.save
