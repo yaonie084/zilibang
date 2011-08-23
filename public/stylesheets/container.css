@@ -647,19 +647,15 @@ margin: 10px;
 background: url(/images/internal_content_bg.gif) repeat-y;
 margin-bottom: 55px;
 margin-left: 15px;
-<<<<<<< HEAD
-text-align: left;
-=======
+
 text-align: center;
 width: 902px;
->>>>>>> 325beea49dbe0f726a779bb6624f7092d0a34327
+
 display: block;
 }
 
 #internalContent #projectDetailsOverview {
 padding: 10px 17px;
-<<<<<<< HEAD
-=======
 
 }
 
@@ -667,7 +663,7 @@ padding: 10px 17px;
 cursor: pointer;
 outline: none;
 color: #0094CC;
->>>>>>> 325beea49dbe0f726a779bb6624f7092d0a34327
+
 }
 
 #projectDetailsOverview .column1 {
@@ -692,17 +688,8 @@ width: 295px;
 
 #projectDetailsOverview .column4 {
 text-align: right;
-<<<<<<< HEAD
-}
-=======
 }
 
-#projectDetails, #projectServiceProviders {
-background: white;
-width: 866px;
-margin-left: auto;
-margin-right: auto;
-}
 
 #projectDetailsContent {
 padding: 13px 20px 20px 20px;
@@ -749,31 +736,79 @@ padding: 0px;
 
 .bidHead .th0 {
 float: left;
-text-align: right;
-width: 110px;
+text-align: center;
+width: 215px;
 }
 
 .bidHead .th1 {
 float: left;
-text-align: right;
-width: 121px;
+text-align: center;
+width: 65px;
 }
 
 .bidHead .th2 {
 float: left;
-text-align: right;
-width: 116px;
+text-align: center;
+width: 200px;
 }
 
 .bidHead .th3 {
 float: left;
-text-align: right;
-width: 129px;
+text-align: center;
+width: 200px;
 }
 
 .bidHead .th4 {
 float: left;
-text-align: right;
-width: 140px;
+text-align: center;
+width: 165px;
 }
 
+#projectDetails, #projectServiceProviders {
+background: white;
+width: 866px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+
+.serviceProviderDetails {
+padding: 8px;
+border-bottom: 1px solid #DADADA;
+}
+
+.bidWrap {
+font-size: 12px;
+}
+
+.brwrap .brsec {
+float: left;
+margin: 10px 0 7px 0;
+text-align: center;
+}
+
+.brwrap .top1 {
+width: 215px;
+text-align: left;
+padding-left: 10px;
+}
+
+.brwrap .top2 {
+width: 65px;
+}
+
+.brwrap .top3 {
+width: 200px;
+}
+
+.brwrap .top4 {
+width: 200px;
+padding-top: 5px;
+}
+
+.brwrap .top5 {
+width: 165px;
+padding-top: 15px;
+margin-top: 0;
+margin-bottom: 0;
+}
