@@ -2,12 +2,6 @@
   <thead>
     <tr>
       <th>title</th>
-      <th>description</th>
-      <th>时间</th>
-      <th>电话</th>
-      <th>金额</th>
-      <th>状态</th>
-      <th>发布时间</th>
       <th></th>
     </tr>
   </thead>
@@ -15,17 +9,11 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.longtime %></td>
-        <td><%= post.tel %></td>
-        <td><%= "#{post.low_price} - #{post.high_price}" %></td>
-        <td><%= post.state %></td>
-        <td><%= post.created_at %></td>
+        <td><%= link_to post.title , admin_post_path(post)%></td>
         <td>
           <%= link_to "show", admin_post_path(post), :title => :edit, :class => "show" %>
           <%= link_to "edit", edit_admin_post_path(post), :title => :edit, :class => "edit" %>&nbsp;
-                    <form action="<%= admin_destroy_post_path(post) %>" method="post">
+          <form action="<%= admin_destroy_post_path(post) %>" method="post">
             <input class="destroy" id="post_destroy" type="submit" value="删除"></input>
           </form>
         </td>

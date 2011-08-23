@@ -41,6 +41,7 @@ Zilibang::Application.routes.draw do
     get 'main/index'
     root :to => "main#index"
     resources :posts, :except => [:destroy]
+    post 'posts/:id/pay' => "posts#pay", :as => :pay_post
     post 'posts/:id/destroy' => "posts#destroy", :as => :destroy_post
     resources :users do
       collection do
