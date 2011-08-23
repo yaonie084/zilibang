@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       comment.buyer_sure = true
       comment.save
       Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业确定，请确认:#{comment.post.title}#{post_path(comment)}")
-      current_user.deliver_buyer_sure(comment.user,comment.post)
+      current_user.delay.deliver_buyer_sure(comment.user,comment.post)
       redirect_to post_path(comment.post)
     end
   end
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       comment.employer_sure = false
       comment.save
       Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业取消任务")
-      current_user.deliver_buyer_cancel(comment.user,comment.post)
+      current_user.delay.deliver_buyer_cancel(comment.user,comment.post)
       redirect_to post_path(comment.post)
     end
   end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
       comment.employer_sure = true
       comment.save
       Message.create(:sender => User.find(1),:receiver => comment.post.user,:content =>"用户已确定")
-      current_user.deliver_employer_sure(comment.post.user,comment.post)
+#      current_user.delay.deliver_employer_sure(comment.post.user,comment.post)
       redirect_to post_path(comment.post)
     end
   end
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
       comment.employer_sure = false
       comment.save
       Message.create(:sender => User.find(1),:receiver => comment.post.user,:content =>"用户已取消")
-      current_user.deliver_employer_cancel(comment.post.user,comment.post)
+      current_user.delay.deliver_employer_cancel(comment.post.user,comment.post)
       redirect_to post_path(comment.post)
     end
   end
@@ -62,7 +62,7 @@ class CommentsController < ApplicationController
         end
         comment.save
         Message.create(:sender => User.find(1), :receiver => comment.user, :content => "验证成功")
-        current_user.deliver_verify_code(comment.user,comment.post)
+        current_user.delay.deliver_verify_code(comment.user,comment.post)
         flash[:notice] = "ok!"
         redirect_to post_path(comment.post)
       else
@@ -89,7 +89,7 @@ class CommentsController < ApplicationController
     comment.buyer_level = level
     comment.save
     Message.create(:sender => User.find(1),:receiver => comment.post.user,:content =>"用户已评价")
-    current_user.deliver_report_buyer(comment.post.user,comment.post)
+#    current_user.delay.deliver_report_buyer(comment.post.user,comment.post)
     user = comment.user
     #    comment.post.skill_list.each do |tag|
     #      puts "#{tag}--\n"
@@ -115,7 +115,7 @@ class CommentsController < ApplicationController
     comment.employer_level = level
     comment.save
     Message.create(:sender => User.find(1),:receiver => comment.user,:content =>"企业已评价")
-    current_user.deliver_report_employer(comment.user,comment.post)
+#    current_user.delay.deliver_report_employer(comment.user,comment.post)
     user = comment.post.user
     #    comment.post.skill_list.each do |tag|
     #      user.add_score!(level, tag)

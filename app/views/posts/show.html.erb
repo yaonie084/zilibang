@@ -82,6 +82,94 @@
                         </div>
   <div class="c">&nbsp;</div>
 </div>
+
+  <div id="projectDetails">
+                        	<img src="//cdn3.freelancer.com/img/internal/project/project_content_top.gif" alt="" width="866" height="10"/>
+                            <div id="projectDetailsContent" style="width:826px; word-wrap:break-word;">
+                                <h3>任务描述</h3>
+								<br/>
+<table style="width: 826px; border-width: 0px; border-style: none; border-spacing: 0px;">
+    <tbody><tr><td style="width:100%;">
+				<%= @post.description %>
+        </td>
+        <td style="padding-left:5px;">
+<a href="http://ox-d.freelancer.com/w/1.0/rc?ts=0c2lkPTUwMTB8YXVpZD0zMTc5MnxhaWQ9NjE5MDF8cHViPTc0NDh8bGlkPTQzMjk5fHQ9MXxyaWQ9MWVmYmI0NTQtNTRkNy00NGEwLTgwZGQtMjI1NDJlOWRjMTlmfG9pZD0xNTM5MHxibT1CVVlJTkcuSE9VU0V8cGM9QVVEfGFjPUFVRHxwbT1QUklDSU5HLkNQTXxydD0xMzEzODIzMzQzfGFkdj03NjQ3" target="_blank">
+  <img src="http://ox-i.freelancer.com/fde/fdebec09-eb04-41c1-8838-6e8db98157ce/b56/b5663273994fcc2c7a0cf182b9242683.gif" height="250" width="300" border="0" alt=""/>
+</a>
+
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+
+                  <div align="right">
+                        <a href="#" onclick="return reportProject();" style="color:#cc0000;"><font color="#cc0000">Report Violation</font></a>
+                  </div>
+
+
+                                <br/>
+                                <div class="horizontalLine"><img src="//cdn6.freelancer.com/img/dadada.gif" alt=" " width="834" height="1" /></div>
+
+                                 <div id="projectTechnicalSummary">
+                                 	<div class="column1">
+
+<img src="//cdn5.freelancer.com/img/spacer.gif" alt="" width="1" height="7" class="homeHeaderSizer"/>
+
+<div style="padding:5px 0px 5px 0px" class="tags"><b>需要技能:</b>
+  <% @post.skills.each do |skill|%>
+    <a class ="post-tag"><%=  skill %></a>
+  <% end %>
+</div>
+
+
+                                 </div>
+                                 </div>
+
+                            </div>
+
+                            <img src="//cdn5.freelancer.com/img/internal/project/project_content_bottom.gif" alt="" width="866" height="10" />
+                        </div>
+
+  <div style="margin-top: 10px; position: relative; ">
+    <div id="bidders-section">
+      <h2>所有投标</h2>
+
+    </div>
+    <div class="bidHead">
+				<span class="th0">
+
+						<span class="bidders-section-heading">竞标者</span>
+
+				</span>
+				<span class="th1">
+						<span class="bidders-section-heading">状态</span>
+
+				</span>
+				<span class="th2">
+
+						<span class="bidders-section-heading">报价</span>
+
+				</span>
+				<span class="th3">
+						<span class="bidders-section-heading">竞标时间</span>
+
+				</span>
+				<span class="th4">
+
+                        <span class="bidders-section-heading">功能区</span>
+				</span>
+                <span style="clear:both;"></span>
+			</div>
+
+
+	
+	<img src="//cdn6.freelancer.com/img/internal/internal_content_bottom.gif" alt="" width="902" height="12"/>
+</div>
+</div>
+  <!-- xx  -->
+>>>>>>> 325beea49dbe0f726a779bb6624f7092d0a34327
 <div>
   <% if @post.user == current_user %>
     <% if @post.over == true %>

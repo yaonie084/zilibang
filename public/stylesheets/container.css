@@ -647,12 +647,27 @@ margin: 10px;
 background: url(/images/internal_content_bg.gif) repeat-y;
 margin-bottom: 55px;
 margin-left: 15px;
+<<<<<<< HEAD
 text-align: left;
+=======
+text-align: center;
+width: 902px;
+>>>>>>> 325beea49dbe0f726a779bb6624f7092d0a34327
 display: block;
 }
 
 #internalContent #projectDetailsOverview {
 padding: 10px 17px;
+<<<<<<< HEAD
+=======
+
+}
+
+#internalContent a, a {
+cursor: pointer;
+outline: none;
+color: #0094CC;
+>>>>>>> 325beea49dbe0f726a779bb6624f7092d0a34327
 }
 
 #projectDetailsOverview .column1 {
@@ -677,4 +692,88 @@ width: 295px;
 
 #projectDetailsOverview .column4 {
 text-align: right;
+<<<<<<< HEAD
 }
+=======
+}
+
+#projectDetails, #projectServiceProviders {
+background: white;
+width: 866px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#projectDetailsContent {
+padding: 13px 20px 20px 20px;
+text-align: left;
+}
+
+#bidders-section {
+width: 886px;
+margin-left: auto;
+margin-right: auto;
+background: none;
+text-align: left;
+}
+
+#bidders-section h2 {
+background-color: #F4F4F4;
+padding: 0px 0px 10px 20px;
+color: #111;
+font-size: 18px;
+}
+
+.bidHead, #show-only, .current-search {
+-moz-border-radius-topright: 10px;
+-moz-border-radius-topleft: 10px;
+-webkit-border-top-right-radius: 10px;
+-webkit-border-top-left-radius: 10px;
+background-color: white;
+border-top-right-radius: 10px 10px;
+border-top-left-radius: 10px 10px;
+}
+
+.bidHead {
+width: 100%;
+height: 29px;
+background: url('/images/mod_top_blue1.png');
+}
+
+.bidHead span, .bidHead-grey span {
+color: white;
+font-weight: bold;
+line-height: 33px;
+padding: 0px;
+}
+
+.bidHead .th0 {
+float: left;
+text-align: right;
+width: 110px;
+}
+
+.bidHead .th1 {
+float: left;
+text-align: right;
+width: 121px;
+}
+
+.bidHead .th2 {
+float: left;
+text-align: right;
+width: 116px;
+}
+
+.bidHead .th3 {
+float: left;
+text-align: right;
+width: 129px;
+}
+
+.bidHead .th4 {
+float: left;
+text-align: right;
+width: 140px;
+}
+
