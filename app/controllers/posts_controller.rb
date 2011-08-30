@@ -2,7 +2,7 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").paginate(:page => params[:page]||1, :per_page => 30)
   end
 
   def show
@@ -23,16 +23,13 @@ class PostsController < ApplicationController
       buffers << Tag.find(skill).name
     end
 
-    puts "--------------------------------------------------\n"
-    puts buffers
-
     @post.skill_list = buffers
     @post.state = "火热竞标中"
     if @post.valid_with_captcha?
       @post.save
       flash[:notice] = "创建成功"
       #respond_with(@user, :location => root_path())
-      redirect_to posts_path()
+      redirect_to posts_url
     else
       render :action => :new
     end
@@ -77,6 +74,7 @@ class PostsController < ApplicationController
   end
 
   def add_comment
+    
     @comment = Comment.new(params[:comment])
     @comment.user = current_user
     @comment.post_id = params[:post_id]

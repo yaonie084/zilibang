@@ -1,14 +1,19 @@
+
 <table>
   <thead>
     <tr>
+      <th>id</th>
       <th>title</th>
-      <th></th>
+      <th>function</th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td>
+          <%= post.id %>
+        </td>
         <td><%= link_to post.title , admin_post_path(post)%></td>
         <td>
           <%= link_to "show", admin_post_path(post), :title => :edit, :class => "show" %>

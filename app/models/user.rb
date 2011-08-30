@@ -1,6 +1,7 @@
 # coding: utf-8
 class User < ActiveRecord::Base
   ROLES = %w[admin user guest]
+  validates_acceptance_of :terms_of_service
   apply_simple_captcha
 #  validates :email, :presence => true
 #  validates :password, :presence => true

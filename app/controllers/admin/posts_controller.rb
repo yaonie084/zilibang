@@ -6,7 +6,7 @@ class Admin::PostsController < Admin::BaseController
   main_nav_highlight :content
   sec_nav_highlight :posts
   def index
-    @posts = Post.all
+    @posts = Post.order("created_at DESC").paginate(:page => params[:page]||1, :per_page => 30)
   end
 
   def show

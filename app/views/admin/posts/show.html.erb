@@ -41,6 +41,8 @@
   </tbody>
 
 </table>
+<% if @post.over == true and @post.paid == false %>
   <form action="<%=  admin_pay_post_path(@post) %>" method="post">
             <input class="destroy" id="post_destroy" type="submit" value="替企业付款"></input>
   </form>
+<% end %>

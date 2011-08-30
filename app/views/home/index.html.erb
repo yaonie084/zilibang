@@ -113,7 +113,7 @@
               <%= post.comments.count %>
             </td>
             <td align="center">
-              <%= link_to post.user.profile.name, post.user.profile %>
+              <%= link_to post.user.profile.name, worker_show_path(post.user.profile) %>
             </td>
             <td align="center">
               <%= join_skills(post) %>

@@ -1,5 +1,9 @@
 <h2>用户中心</h2>
 <p>您好<%= @profile.name %>， 您可以通过用户中心管理您的帐号</p>
+<% if @user.role == "guest" %>
+<p style="color: #red">您当前的状态是游客，游客无法在自强帮接任务或者发布任务，请在您登录使用的邮箱中查找自强帮的验证邮件</p>
+<p style="color: #red">如果没有收到或者别的原因，您可以无限次<%= link_to "重新发送验证邮件", mailer_path() %></p>
+<% end %>
 <ul class="shortcut-buttons-set">
 
         <li><%= link_to "首页", root_path, :class => "shortcut-button home" %></li>

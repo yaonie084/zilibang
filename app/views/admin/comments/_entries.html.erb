@@ -1,0 +1,32 @@
+<%= will_paginate @comments %>
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>content</th>
+      <th>price</th>
+      <th>code</th>
+      <th>function</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td>
+          <%= comment.id %>
+        </td>
+        <td><%= comment.content%></td>
+        <td><%= comment.price %></td>
+        <td><%= comment.code %></td>
+        <td>
+          <%= link_to "edit", edit_admin_comment_path(comment), :title => :edit, :class => "edit" %>&nbsp;
+          <form action="<%= admin_destroy_comment_path(comment) %>" method="post">
+            <input class="destroy" id="comment_destroy" type="submit" value="删除"></input>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @comments %>

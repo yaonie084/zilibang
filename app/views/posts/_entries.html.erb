@@ -10,6 +10,10 @@
 	<li><%= link_to "返回首页", root_path(), :class => "left" %></li>
 	<li><%= link_to "发布任务", new_post_path(), :class => "left" %></li>
 </ul>
+    <div class="flickr_pagination">
+
+    <%=h will_paginate @posts %>
+    </div>
     <table class="mrw_list record" cellspacing="0" cellpadding="0" border="1">
       <tbody><tr style="" class="table-head">
           <th width="9%" align="left">任务赏金</th>
@@ -51,4 +55,8 @@
 
 
       </tbody></table>
+        <div class="flickr_pagination">
+
+    <%=h will_paginate @posts %>
+    </div>
   </div>

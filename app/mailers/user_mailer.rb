@@ -16,7 +16,7 @@ class UserMailer < ActionMailer::Base
     @url = "http://localhost:3000"
     @url += forgot_check_instructions_path(@user.perishable_token)
         mail(:to => user.email,
-         :subject => "自强帮重置密码")
+         :subject => "自强帮重置密码信息")
   end
 
   def over_yes(user,post)
@@ -25,7 +25,7 @@ class UserMailer < ActionMailer::Base
     @url = "http://localhost:3000"
     @url += post_path(@post.id)
     mail( :to => user.email,
-          :subject => "自强帮邮件通知-1")
+          :subject => "您在自强帮接受的\"#{@post.title}\"任务已经结束竞标。")
   end
   def over_no(user,post)
     @user = user
@@ -49,7 +49,7 @@ class UserMailer < ActionMailer::Base
     @url = "http://localhost:3000"
     @url += post_path(@post.id)
     mail( :to => user.email,
-          :subject => "自强帮邮件通知-4")
+          :subject => "您在自强帮接受的\"#{@post.title}\"任务，企业已经付清款数。")
 
   end
   def pay_code(user ,post)
@@ -58,7 +58,7 @@ class UserMailer < ActionMailer::Base
     @url = "http://localhost:3000"
     @url += post_path(@post.id)
     mail( :to => user.email,
-          :subject => "自强帮邮件通知-5"  )
+          :subject => "您在自强帮发布的\"#{@post.title}\"任务已经付清款数。"  )
   end
   def buyer_sure(user,post)
     @user = user
@@ -85,7 +85,7 @@ class UserMailer < ActionMailer::Base
     @url = "http://localhost:3000"
     @url += post_path(@post.id)
     mail( :to => user.email,
-          :subject => "自强帮邮件通知-8"
+      :subject => "您在自强帮中发布的\"#{@post.title}\"任务，已经有用户接受任务。"
     )
   end
   def buyer_cancel(user,post)

@@ -10,4 +10,8 @@ class NoticesController < ApplicationController
   def error_404
     render :text => "error: 404, 你懂的"
   end
+
+  def error_power
+    
+  end
 end

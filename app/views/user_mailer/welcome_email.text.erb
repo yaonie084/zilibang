@@ -1,9 +1,18 @@
-Welcome to example.com, <%= @user.email %>
-===============================================
+尊贵的<%= @user.email %>：
 
-You have successfully signed up to example.com,
-your username is: <%= @user.email %>.
+恭喜，您已经成为「自强帮」( ziqiangbang.com )的注册用户，以下是您的用户信息：
 
-To login to the site, just follow this link: <%= @url %>
+您可以使用您的邮箱 <%= @user.email %> 来登录本网站。
 
-Thanks for joining and have a great day!
+您现在的权限是游客，在游客权限下您不能发布任务和接任务，
+
+点击这里 <%= @url %> ，您会得到自强帮(ziqiangbang.com)的"普通用户权限"
+
+普通用户将可以在「自强帮」( ziqiangbang.com )发布任务，和接其他用户的任务。
+
+如果您在使用中遇到问题，或者有什么意见或建议的话，欢迎您回复本邮件告诉我们。
+
+最后，再次祝贺和感谢您成为「自强帮」( ziqiangbang.com )用户，我们的免费服务将陪伴您度过更加愉快的站长生活。
+
+「自强帮」( ziqiangbang.com )
+<%= Time.now %>

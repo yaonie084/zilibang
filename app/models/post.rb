@@ -1,5 +1,6 @@
 # coding: utf-8
 class Post < ActiveRecord::Base
+  self.per_page = 40
   belongs_to :user
   has_many :comments
   acts_as_taggable_on :skills

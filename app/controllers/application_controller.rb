@@ -4,9 +4,23 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
   include SimpleCaptcha::ControllerHelpers
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to error_404_url
+    redirect_to error_power_url
   end
 
+  def self.rescue_errors
+    rescue_from Exception,                            :with => :render_error
+    rescue_from RuntimeError,                         :with => :render_error
+    rescue_from ActiveRecord::RecordNotFound,         :with => :render_error
+    rescue_from ActionController::RoutingError,       :with => :render_error
+    rescue_from ActionController::UnknownController,  :with => :render_error
+    rescue_from ActionController::UnknownAction,      :with => :render_error
+  end
+  rescue_errors unless Rails.env.development?
+
+
+  def render_error(exception = nil)
+    render :template => "/500", :status => 500, :layout => false
+  end
   
 
   def self.authorize_namespace(options = {})

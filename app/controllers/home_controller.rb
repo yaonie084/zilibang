@@ -46,6 +46,7 @@ class HomeController < ApplicationController
 
   def mailer
     current_user.delay.deliver_register_instructions!
+    flash[:notice] = "重新发送验证邮件成功，请再次进入邮箱查收。"
     redirect_to root_url
   end
 end

@@ -3,6 +3,7 @@ Zilibang::Application.routes.draw do
   get "notices/index", :as => "accept_account"
   get "notices/error", :as => "refuse_account"
   get "notices/error_404", :as=> "error_404"
+  get "notices/error_power", :as=> "error_power"
   get "home/index"
 
   root :to => "home#index"
@@ -43,6 +44,8 @@ Zilibang::Application.routes.draw do
     resources :posts, :except => [:destroy]
     post 'posts/:id/pay' => "posts#pay", :as => :pay_post
     post 'posts/:id/destroy' => "posts#destroy", :as => :destroy_post
+    resources :comments, :only => [:index, :edit, :update]
+    post 'comments/:id/destroy' => "comments#destroy", :as => :destroy_comment
     resources :users do
       collection do
         get "change_password"

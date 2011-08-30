@@ -532,7 +532,7 @@ form input[type="radio"] {
 .simple_captcha {
     display: block;
     border: 0px !important;
-    margin-left: 200px;
+    margin-left: 380px;
 }
 
 #post-skill-list-input label{
@@ -761,7 +761,7 @@ width: 200px;
 .bidHead .th4 {
 float: left;
 text-align: center;
-width: 165px;
+width: 230px;
 }
 
 #projectDetails, #projectServiceProviders {
@@ -807,8 +807,14 @@ padding-top: 5px;
 }
 
 .brwrap .top5 {
-width: 165px;
+width: 230px;
 padding-top: 15px;
 margin-top: 0;
 margin-bottom: 0;
+}
+
+.bidWrap .msg {
+padding: 5px 10px;
+width: 675px;
+float: left;
 }

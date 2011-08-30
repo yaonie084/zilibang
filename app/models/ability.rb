@@ -11,6 +11,7 @@ class Ability
       can :all, Comment
     elsif user.role == "guest"
       can [:index, :show], Post
+      can :manage, Center
     end
   end
 end

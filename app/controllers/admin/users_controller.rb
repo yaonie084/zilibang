@@ -25,7 +25,7 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     @user.update_attributes(params[:user])
-    flash[:notice] = t(:update_successful)
+    flash[:notice] = "update_successful"
     respond_with(@user, :location => admin_users_path())
   end
 

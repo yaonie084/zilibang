@@ -1,12 +1,13 @@
 <table>
 	<thead>
 		<tr>
-			<th><%= :id %></th>
-			<th><%= :email %></th>
-			<th><%= :last_request_at %></th>
-			<th><%= :login_count %></th>
-			<th><%= :created_at %></th>
-			<th></th>
+			<th> id </th>
+			<th> 登录邮箱</th>
+                        <th> 权限 </th>
+			<th> 上次活动 </th>
+			<th> 登录次数 </th>
+			<th> 注册时间 </th>
+			<th> 功能 </th>
 		</tr>
 	</thead>
 
@@ -16,6 +17,7 @@
 
 			<td><%= user.id %></td>
 			<td><%= user.email %></td>
+                        <td><%= user.role %></td>
 			<td><%= user.last_request_at %></td>
 			<td><%= user.login_count %></td>
 			<td><%= user.created_at %></td>

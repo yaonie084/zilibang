@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       @user.save_with_captcha
       @user.reset_perishable_token!
       @user.delay.deliver_register_instructions!
-      flash[:notice] = "创建成功"
+      flash[:notice] = "创建成功，请查收您邮箱中自强帮发来的邮件"
       redirect_to root_path()
     else
       render :action => :new
