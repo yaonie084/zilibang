@@ -5,22 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-@user = User.find_or_create_by_email("llh@llh.com") do |u|
-  u.password = u.password_confirmation = "123456"
-  u.gender = "male"
-  u.superadmin = true
-  u.role = "admin"
-end
-
-Profile.create(:user => @user, :name => "llh")
-
-# HEAD
-@user = User.find_or_create_by_email("lx@lx.com") do |u|
-  u.password = u.password_confirmation = "123456"
-  u.gender = "male"
-  u.role = "admin"
-end
-
-Profile.create(:user => @user, :name => "lx")
-
+@user = User.find_by_email("wangyu_fine@sina.com")
+@user.role = "admin"
+@user.save
 
