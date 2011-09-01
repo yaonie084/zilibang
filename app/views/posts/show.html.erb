@@ -251,7 +251,6 @@
 
         <%= semantic_form_for "", :url=> verify_code_url do |form| %>
           <%= form.input :code, :label => "提现密码" %>
-          <%= show_simple_captcha( :label => "验证码") %>
           <%= form.input :id, :as => :hidden, :value => comment.id %>
           <%= form.buttons do %>
             <%= form.commit_button :button_html => { :value => "提交"} %>

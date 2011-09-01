@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
     @post.skill_list = buffers
     @post.state = "火热竞标中"
-    if @post.valid_with_captcha?
+    if @post.valid?
       @post.save
       flash[:notice] = "创建成功"
       #respond_with(@user, :location => root_path())

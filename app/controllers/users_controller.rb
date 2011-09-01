@@ -9,8 +9,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @user.role = "guest"
-    if @user.valid_with_captcha?
-      @user.save_with_captcha
+    if @user.valid?
+      @user.save
       @user.reset_perishable_token!
       @user.delay.deliver_register_instructions!
       flash[:notice] = "创建成功，请查收您邮箱中自强帮发来的邮件"
