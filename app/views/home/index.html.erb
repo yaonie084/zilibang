@@ -5,11 +5,15 @@
           <div style="padding:13px;" class="left">
             <b style="font-weight:bold;font-size:16px;color: #666">累计所有:</b>
             |
-            <b style="color:#666"> ngo:1000000元</b>
+            <b style="color:#666"> ngo:0元</b>
             |
-            <b style="color:#666"> 任务总数:10000个</b>
+            <b style="color:#666"> 任务总数:
+              <%= Post.all.count %>
+              个</b>
             |
-            <b style="color:#666"> 人才数:1000000个</b>
+            <b style="color:#666"> 人才数:
+              <%= User.all.count %>
+              个</b>
 
           </div>
           <div class="ziqiangbang-logo2 right">
