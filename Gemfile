@@ -1,10 +1,15 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.9'
+
 gem 'rake', '0.8.7'
-# Bundle edge Rails instead:
+gem 'thin'
+#Bundle edge Rails instead:
+
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
+gem 'mysql2', "~> 0.2.11"
 gem 'sqlite3'
 gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 gem "will_paginate", "~> 3.0.pre2"
