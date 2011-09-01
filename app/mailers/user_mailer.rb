@@ -5,7 +5,7 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += register_check_instructions_path(@user.perishable_token)
     mail(:to => user.email,
          :subject => "自强帮注册信息确认")
@@ -13,7 +13,7 @@ class UserMailer < ActionMailer::Base
 
   def forgot_email(user)
     @user = user
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += forgot_check_instructions_path(@user.perishable_token)
         mail(:to => user.email,
          :subject => "自强帮重置密码信息")
@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
   def over_yes(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "您在自强帮接受的\"#{@post.title}\"任务已经结束竞标。")
@@ -30,7 +30,7 @@ class UserMailer < ActionMailer::Base
   def over_no(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-2")
@@ -38,7 +38,7 @@ class UserMailer < ActionMailer::Base
   def finish(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-3" )
@@ -46,7 +46,7 @@ class UserMailer < ActionMailer::Base
   def pay(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "您在自强帮接受的\"#{@post.title}\"任务，企业已经付清款数。")
@@ -55,7 +55,7 @@ class UserMailer < ActionMailer::Base
   def pay_code(user ,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "您在自强帮发布的\"#{@post.title}\"任务已经付清款数。"  )
@@ -63,7 +63,7 @@ class UserMailer < ActionMailer::Base
   def buyer_sure(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-6"
@@ -72,7 +72,7 @@ class UserMailer < ActionMailer::Base
   def wait_buyer_sure(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-7"
@@ -82,7 +82,7 @@ class UserMailer < ActionMailer::Base
   def wait_employer_sure(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
       :subject => "您在自强帮中发布的\"#{@post.title}\"任务，已经有用户接受任务。"
@@ -91,7 +91,7 @@ class UserMailer < ActionMailer::Base
   def buyer_cancel(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-9"
@@ -100,7 +100,7 @@ class UserMailer < ActionMailer::Base
   def employer_sure(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-10"
@@ -109,7 +109,7 @@ class UserMailer < ActionMailer::Base
   def employer_cancel(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-11"
@@ -118,7 +118,7 @@ class UserMailer < ActionMailer::Base
   def employer_over(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-12"
@@ -127,7 +127,7 @@ class UserMailer < ActionMailer::Base
   def verify_code(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-13"
@@ -136,7 +136,7 @@ class UserMailer < ActionMailer::Base
   def report_buyer(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-14"
@@ -145,7 +145,7 @@ class UserMailer < ActionMailer::Base
   def report_employer(user,post)
     @user = user
     @post = post
-    @url = "http://localhost:3000"
+    @url = "http://www.ziqiang.com"
     @url += post_path(@post.id)
     mail( :to => user.email,
           :subject => "自强帮邮件通知-15"

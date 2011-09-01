@@ -18,7 +18,7 @@ gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => '
 gem 'formtastic', '~> 1.2.3'
 gem 'dynamic_form'
 gem "paperclip", "~> 2.3"
-gem "rmagick", "~> 2.11.0"
+#gem "rmagick", "~> 2.11.0"
 gem 'acts-as-taggable-on', "~> 2.0.6"
 gem 'haml'
 gem 'guid'
